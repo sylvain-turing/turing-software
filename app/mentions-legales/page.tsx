@@ -4,6 +4,10 @@ import { COMPANY_INFO } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Mentions Légales",
   description: "Mentions légales de l'entreprise - Informations légales et hébergement du site",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function MentionsLegalesPage() {

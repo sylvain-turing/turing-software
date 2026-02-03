@@ -4,6 +4,10 @@ import { COMPANY_INFO } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Politique de Confidentialité",
   description: "Politique de confidentialité et protection des données personnelles",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function PolitiqueConfidentialitePage() {
