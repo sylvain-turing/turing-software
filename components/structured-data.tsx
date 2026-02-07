@@ -10,7 +10,6 @@ export function StructuredData() {
     "email": COMPANY_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": COMPANY_INFO.address.street,
       "addressLocality": COMPANY_INFO.address.city,
       "postalCode": COMPANY_INFO.address.postalCode,
       "addressCountry": COMPANY_INFO.address.country

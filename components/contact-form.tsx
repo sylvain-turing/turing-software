@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -15,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
@@ -28,7 +29,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const router = useRouter();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -56,33 +57,13 @@ export function ContactForm() {
         throw new Error("Erreur lors de l'envoi du message");
       }
 
-      setIsSubmitted(true);
-
-      // Reset form after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-        form.reset();
-      }, 5000);
+      // Redirect to thank you page
+      router.push("/contact/merci");
     } catch (error) {
       console.error("Erreur:", error);
       alert("Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.");
-    } finally {
       setIsSubmitting(false);
     }
-  }
-
-  if (isSubmitted) {
-    return (
-      <div className="text-center py-12">
-        <CheckCircle2 className="h-16 w-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-foreground mb-2">
-          Message envoyé !
-        </h3>
-        <p className="text-muted-foreground">
-          Nous vous répondrons dans les plus brefs délais.
-        </p>
-      </div>
-    );
   }
 
   return (

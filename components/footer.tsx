@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { COMPANY_INFO, NAV_LINKS, formatAddress } from "@/lib/constants";
+import { Mail, Phone, ArrowRight } from "lucide-react";
+import { COMPANY_INFO, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -66,16 +66,6 @@ export function Footer() {
                 </div>
                 <span className="break-all">{COMPANY_INFO.email}</span>
               </a>
-              {COMPANY_INFO.address.street && COMPANY_INFO.address.street !== "Adresse de l'entreprise" && (
-                <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>
-                    {formatAddress(COMPANY_INFO.address)}
-                  </span>
-                </div>
-              )}
             </div>
           </div>
         </div>
