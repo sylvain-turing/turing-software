@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Clock, Users, Wrench, Zap } from "lucide-react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -21,7 +21,7 @@ export default function CreationSiteWeb() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Création de site internet professionnel
@@ -36,10 +36,12 @@ export default function CreationSiteWeb() {
               </div>
             </div>
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/web-development.jpg"
+                alt="Création site internet professionnel"
                 width={600} 
-                height={500} 
-                label="Création site internet professionnel"
+                height={500}
+                className="rounded-xl object-cover"
               />
             </div>
           </div>
@@ -144,7 +146,13 @@ export default function CreationSiteWeb() {
               </div>
               
               <div>
-                <ImagePlaceholder label="Exemple de site vitrine moderne" height={400} />
+                <Image 
+                  src="/images/photos/modern-website.jpg"
+                  alt="Exemple de site vitrine moderne"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
             </div>
           </div>
@@ -157,7 +165,13 @@ export default function CreationSiteWeb() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <ImagePlaceholder label="Site professionnel avec fonctionnalités avancées" height={400} />
+                <Image 
+                  src="/images/photos/professional-workspace.jpg"
+                  alt="Site professionnel avec fonctionnalités avancées"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               
               <div className="order-1 md:order-2">
@@ -247,7 +261,13 @@ export default function CreationSiteWeb() {
               </div>
               
               <div>
-                <ImagePlaceholder label="Interface WordPress personnalisée" height={400} />
+                <Image 
+                  src="/images/photos/wordpress-design.jpg"
+                  alt="Interface WordPress personnalisée"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
             </div>
           </div>
@@ -269,7 +289,13 @@ export default function CreationSiteWeb() {
             
             <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
               <div>
-                <ImagePlaceholder label="Avant/après refonte de site web" height={350} />
+                <Image 
+                  src="/images/photos/website-redesign.jpg"
+                  alt="Avant/après refonte de site web"
+                  width={600}
+                  height={350}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               
               <div>

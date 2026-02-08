@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Smartphone, Zap, Users } from "lucide-react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import Image from "next/image";
+import { CheckCircle2, Smartphone, Zap, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -21,7 +21,7 @@ export default function ApplicationMobile() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Création d&apos;application mobile sur mesure
@@ -36,10 +36,12 @@ export default function ApplicationMobile() {
               </div>
             </div>
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/mobile-development.jpg"
+                alt="Création application mobile iOS Android"
                 width={600} 
-                height={500} 
-                label="Création application mobile iOS Android"
+                height={500}
+                className="w-full h-auto rounded-xl object-cover"
               />
             </div>
           </div>
@@ -168,7 +170,13 @@ export default function ApplicationMobile() {
               </div>
               
               <div>
-                <ImagePlaceholder label="Application React Native exemple" height={500} />
+                <Image 
+                  src="/images/photos/app-smartphone.jpg"
+                  alt="Application React Native exemple"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
             </div>
           </div>
@@ -181,7 +189,13 @@ export default function ApplicationMobile() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
-                <ImagePlaceholder label="Progressive Web App exemple" height={400} />
+                <Image 
+                  src="/images/photos/pwa-responsive.jpg"
+                  alt="Progressive Web App exemple"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               
               <div className="order-1 md:order-2">
@@ -425,7 +439,13 @@ export default function ApplicationMobile() {
             </div>
             
             <div className="mt-12">
-              <ImagePlaceholder label="Screenshots exemples applications mobiles" height={300} />
+              <Image 
+                src="/images/photos/apps-collection.jpg"
+                alt="Screenshots exemples applications mobiles"
+                width={1200}
+                height={300}
+                className="w-full max-h-64 rounded-xl object-cover"
+              />
             </div>
           </div>
         </div>

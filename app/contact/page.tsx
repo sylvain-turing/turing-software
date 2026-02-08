@@ -7,22 +7,16 @@ export default function Contact() {
   return (
     <div className="flex flex-col">
       {/* Page Header */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d4a73] via-[#116cb1] to-[#0f5f9e] py-24 md:py-32">
-        {/* Decorative background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-bold shadow-lg">
+            <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-bold">
               💬 Parlons de votre projet
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Démarrons la conversation
             </h1>
-            <p className="text-xl text-white leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Vous avez un projet en tête ? Partagez-nous vos besoins et vos objectifs. Nous vous répondons rapidement avec une proposition adaptée.
             </p>
           </div>

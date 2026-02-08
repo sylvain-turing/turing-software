@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Clock, Users, Wrench, Zap, Rocket } from "lucide-react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 
@@ -15,13 +15,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-bold">
                 🚀 Agence web à taille humaine
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Agence web — Création de sites internet et applications sur mesure
+                Agence web : Création de sites internet et applications sur mesure
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Nous concevons des sites web, des applications mobiles et des boutiques e-commerce qui font grandir votre activité. Une agence à taille humaine, réactive et technique, qui transforme vos idées en produits digitaux performants.
@@ -33,10 +33,13 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/hero-team-tech.jpg"
+                alt="Agence web création de sites internet et applications"
                 width={600} 
-                height={500} 
-                label="Agence web création sites applications"
+                height={500}
+                priority
+                className="rounded-xl object-cover"
               />
             </div>
           </div>
@@ -59,7 +62,13 @@ export default function Home() {
             {/* Création de site internet */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
               <div className="mb-6">
-                <ImagePlaceholder label="Illustration création de site internet" height={200} />
+                <Image 
+                  src="/images/photos/web-design-screen.jpg"
+                  alt="Illustration création de site internet"
+                  width={400}
+                  height={200}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-4">Création de site internet</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -95,7 +104,13 @@ export default function Home() {
             {/* Création d'application mobile */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
               <div className="mb-6">
-                <ImagePlaceholder label="Illustration application mobile" height={200} />
+                <Image 
+                  src="/images/photos/mobile-app-phone.jpg"
+                  alt="Illustration application mobile"
+                  width={400}
+                  height={200}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-4">Création d&apos;application mobile</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -131,7 +146,13 @@ export default function Home() {
             {/* Création de site e-commerce */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
               <div className="mb-6">
-                <ImagePlaceholder label="Illustration site e-commerce" height={200} />
+                <Image 
+                  src="/images/photos/ecommerce-shopping.jpg"
+                  alt="Illustration site e-commerce"
+                  width={400}
+                  height={200}
+                  className="w-full h-auto rounded-xl object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-4">Création de site e-commerce</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -312,55 +333,6 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Nos réalisations */}
-      <section className="py-24 bg-gradient-bg-soft">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Nos réalisations
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Nous accompagnons des entreprises de toutes tailles : TPE, PME, startups et indépendants. Chaque projet est une nouvelle aventure et un nouveau défi technique.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <ImagePlaceholder label="Capture d'écran projet 1" height={250} />
-              <ImagePlaceholder label="Capture d'écran projet 2" height={250} />
-              <ImagePlaceholder label="Capture d'écran projet 3" height={250} />
-              <ImagePlaceholder label="Capture d'écran projet 4" height={250} />
-              <ImagePlaceholder label="Capture d'écran projet 5" height={250} />
-              <ImagePlaceholder label="Capture d'écran projet 6" height={250} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ils nous font confiance */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Ils nous font confiance
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <ImagePlaceholder label="Logo client 1" height={100} />
-              <ImagePlaceholder label="Logo client 2" height={100} />
-              <ImagePlaceholder label="Logo client 3" height={100} />
-              <ImagePlaceholder label="Logo client 4" height={100} />
-              <ImagePlaceholder label="Logo client 5" height={100} />
-              <ImagePlaceholder label="Logo client 6" height={100} />
-              <ImagePlaceholder label="Logo client 7" height={100} />
-              <ImagePlaceholder label="Logo client 8" height={100} />
             </div>
           </div>
         </div>

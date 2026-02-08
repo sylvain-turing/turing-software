@@ -37,9 +37,9 @@ export function Navigation() {
             <Image
               src="/logo.png"
               alt={`${COMPANY_INFO.name} Logo`}
-              width={100}
-              height={100}
-              className="h-20 w-auto"
+              width={160}
+              height={160}
+              className="h-28 w-auto"
               priority
             />
           </Link>

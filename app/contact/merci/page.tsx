@@ -17,20 +17,14 @@ export default function MerciPage() {
   return (
     <div className="flex flex-col">
       {/* Page Header */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d4a73] via-[#116cb1] to-[#0f5f9e] py-24 md:py-32">
-        {/* Decorative background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <CheckCircle2 className="h-20 w-20 text-white mx-auto mb-6 drop-shadow-lg" />
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            <CheckCircle2 className="h-20 w-20 text-primary mx-auto mb-6" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Merci pour votre message !
             </h1>
-            <p className="text-xl text-white leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Nous avons bien reçu votre demande. Notre équipe vous répondra dans les plus brefs délais, généralement sous 24h.
             </p>
           </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -23,7 +24,6 @@ import {
   Search,
   CheckCircle2
 } from "lucide-react";
-import { ImagePlaceholder } from "@/components/image-placeholder";
 
 export const metadata: Metadata = {
   title: "Création de site e-commerce | Prestashop, Shopify, WooCommerce",
@@ -36,7 +36,7 @@ export default function EcommercePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Création de site e-commerce
@@ -56,10 +56,12 @@ export default function EcommercePage() {
               </div>
             </div>
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/ecommerce-store.jpg"
+                alt="Illustration boutique e-commerce moderne"
                 width={600} 
-                height={500} 
-                label="Illustration boutique e-commerce moderne"
+                height={500}
+                className="rounded-xl object-cover"
               />
             </div>
           </div>
@@ -143,7 +145,7 @@ export default function EcommercePage() {
       {/* Custom E-commerce Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Boutique en ligne sur mesure
@@ -217,10 +219,12 @@ export default function EcommercePage() {
               </div>
             </div>
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/dashboard-analytics.jpg"
+                alt="Interface back-office e-commerce"
                 width={600} 
-                height={700} 
-                label="Interface back-office e-commerce"
+                height={700}
+                className="rounded-xl object-cover"
               />
             </div>
           </div>
@@ -248,7 +252,12 @@ export default function EcommercePage() {
                       CMS e-commerce open source français, adapté aux PME et commerçants
                     </CardDescription>
                   </div>
-                  <ImagePlaceholder width={120} height={60} label="Logo Prestashop" />
+                  <Image 
+                    src="/images/logos/prestashop.svg"
+                    alt="Logo Prestashop"
+                    width={120} 
+                    height={60}
+                  />
                 </div>
               </CardHeader>
               <CardContent>
@@ -295,7 +304,12 @@ export default function EcommercePage() {
                       Solution SaaS hébergée pour lancer une boutique rapidement
                     </CardDescription>
                   </div>
-                  <ImagePlaceholder width={120} height={60} label="Logo Shopify" />
+                  <Image 
+                    src="/images/logos/shopify.svg"
+                    alt="Logo Shopify"
+                    width={120} 
+                    height={60}
+                  />
                 </div>
               </CardHeader>
               <CardContent>
@@ -342,7 +356,12 @@ export default function EcommercePage() {
                       Extension e-commerce de WordPress
                     </CardDescription>
                   </div>
-                  <ImagePlaceholder width={120} height={60} label="Logo WooCommerce" />
+                  <Image 
+                    src="/images/logos/woocommerce.svg"
+                    alt="Logo WooCommerce"
+                    width={120} 
+                    height={60}
+                  />
                 </div>
               </CardHeader>
               <CardContent>
@@ -448,12 +467,14 @@ export default function EcommercePage() {
       {/* Optimization Section */}
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <ImagePlaceholder 
+              <Image 
+                src="/images/photos/analytics-data.jpg"
+                alt="Dashboard conversion e-commerce"
                 width={600} 
-                height={500} 
-                label="Dashboard conversion e-commerce"
+                height={500}
+                className="rounded-xl object-cover"
               />
             </div>
             <div>
