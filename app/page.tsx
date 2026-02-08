@@ -1,260 +1,165 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Code, Wrench, Globe, Target, Users, Zap, CheckCircle2, Lightbulb, Rocket, Cog } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Users, Wrench, Zap, Rocket } from "lucide-react";
+import { ImagePlaceholder } from "@/components/image-placeholder";
+import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 
-import { HeroMesh } from "@/components/hero-mesh";
+export const metadata: Metadata = {
+  title: "Agence web | Création de sites internet et applications",
+  description: "Agence web spécialisée en création de site internet, application mobile et site e-commerce. Développement sur mesure, design moderne et accompagnement clé en main. Devis gratuit.",
+};
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0d4a73] via-[#116cb1] to-[#0f5f9e] py-32 md:py-40">
-        <HeroMesh />
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-block mb-6 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-bold shadow-lg">
-              🚀 Votre partenaire technologique de confiance
-            </div>
-            <div className="mb-4">
-              <p className="text-2xl md:text-3xl font-bold text-white/90 tracking-wide drop-shadow-md">
-                TURING SOFTWARE
-              </p>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
-              Transformez vos idées en <span className="text-white">solutions digitales</span> performantes
-            </h1>
-            <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              Nous concevons des produits web sur-mesure — SaaS, ERP métier, sites business — qui s&apos;adaptent parfaitement à votre activité et vous font gagner en efficacité.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#116cb1] rounded-xl font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl"
-              >
-                Démarrer un projet
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link 
-                href="/services" 
-                className="inline-flex items-center justify-center px-10 py-5 border-3 border-white bg-white/10 text-white rounded-xl font-bold hover:bg-white/20 transition-all backdrop-blur-md shadow-xl"
-              >
-                Découvrir nos services
-              </Link>
-            </div>
-            
-            {/* Trust indicators */}
-            <div className="mt-16 flex flex-wrap justify-center gap-8 text-white text-sm font-semibold">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Solutions sur-mesure</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Interlocuteur unique</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Livraison garantie</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ce que nous faisons */}
-      <section className="py-24 bg-background">
+      <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="gradient-text">Une approche orientée résultats</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Nous transformons vos enjeux business en solutions digitales concrètes
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-bold">
+                🚀 Agence web à taille humaine
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Agence web — Création de sites internet et applications sur mesure
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8">
+                Nous concevons des sites web, des applications mobiles et des boutiques e-commerce qui font grandir votre activité. Une agence à taille humaine, réactive et technique, qui transforme vos idées en produits digitaux performants.
               </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Compréhension métier</h3>
-                <p className="text-muted-foreground">
-                  Nous prenons le temps de comprendre votre activité, vos processus et vos objectifs avant toute ligne de code.
-                </p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Solutions sur-mesure</h3>
-                <p className="text-muted-foreground">
-                  Chaque projet est unique. Nous concevons des outils qui s'adaptent à votre façon de travailler, pas l'inverse.
-                </p>
-              </div>
-              
-              <div className="text-center p-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Livraison maîtrisée</h3>
-                <p className="text-muted-foreground">
-                  Un interlocuteur unique, une gestion de projet claire et des livraisons régulières qui respectent vos délais.
-                </p>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg">
+                  <Link href="/contact">Demander un devis gratuit</Link>
+                </Button>
               </div>
             </div>
-            
-            <div className="bg-gradient-bg-soft rounded-3xl p-8 md:p-12">
-              <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground">
-                <p className="text-foreground font-semibold text-xl">
-                  Chez Turing Software, nous ne faisons pas des sites web classiques ou des logiciels génériques.
-                </p>
-                <p>
-                  Nous concevons des <strong>produits digitaux stratégiques</strong> pour les entreprises qui ont besoin d'outils parfaitement adaptés à leur métier : que ce soit pour lancer un SaaS innovant, structurer leurs opérations avec un ERP sur-mesure, ou créer une présence web qui génère réellement des résultats.
-                </p>
-                <p>
-                  Notre approche repose sur trois piliers : <strong>comprendre vos enjeux business</strong>, concevoir une solution claire et efficace, et <strong>livrer un produit fiable</strong>, évolutif et pensé pour durer dans le temps.
-                </p>
-                <p>
-                  Vous bénéficiez d'un accompagnement complet, de la réflexion stratégique jusqu'à la mise en production, avec une équipe technique capable de transformer vos besoins concrets en solutions digitales performantes.
-                </p>
-              </div>
+            <div>
+              <ImagePlaceholder 
+                width={600} 
+                height={500} 
+                label="Agence web création sites applications"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Cards */}
-      <section className="py-24 bg-muted/30">
+      {/* Nos expertises */}
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nos expertises
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Des solutions digitales pensées pour votre réussite
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Des solutions digitales adaptées à vos besoins
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* SaaS */}
+            {/* Création de site internet */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
-              <div className="mb-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 h-48 flex items-center justify-center">
-                <Image 
-                  src="/images/undraw_analytics-setup_ptrz.svg" 
-                  alt="Analytics et Dashboard SaaS" 
-                  width={400} 
-                  height={300} 
-                  className="w-full h-full object-contain" 
-                />
+              <div className="mb-6">
+                <ImagePlaceholder label="Illustration création de site internet" height={200} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">SaaS sur-mesure</h3>
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed h-24">
-                Transformez votre idée ou expertise métier en produit SaaS fonctionnel et exploitable. Du MVP à la plateforme complète.
+              <h3 className="text-2xl font-bold mb-4">Création de site internet</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Du site vitrine au site professionnel complexe, nous concevons des sites web sur mesure, optimisés pour le référencement et pensés pour convertir vos visiteurs en clients.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Validation rapide avec un MVP</span>
+                  <span>Site vitrine et site professionnel</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Architecture évolutive et scalable</span>
+                  <span>WordPress sur mesure</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Interface utilisateur moderne</span>
+                  <span>Refonte et modernisation de site</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Développement full custom (React, Next.js, Vue.js)</span>
                 </li>
               </ul>
               <Link 
-                href="/services" 
+                href="/creation-site-web" 
                 className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all group"
               >
-                En savoir plus
+                Découvrir notre offre site web
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            {/* ERP */}
+            {/* Création d'application mobile */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
-              <div className="mb-6 bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl p-6 h-48 flex items-center justify-center">
-                <Image 
-                  src="/images/undraw_scrum-board_7bgh.svg" 
-                  alt="Gestion de projet et workflow ERP" 
-                  width={400} 
-                  height={300} 
-                  className="w-full h-full object-contain" 
-                />
+              <div className="mb-6">
+                <ImagePlaceholder label="Illustration application mobile" height={200} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">ERP métier</h3>
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed h-24">
-                Un ERP conçu pour s&apos;adapter à votre façon de travailler. Centralisez vos données et optimisez vos processus.
+              <h3 className="text-2xl font-bold mb-4">Création d&apos;application mobile</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Nous développons des applications mobiles disponibles sur iOS et Android avec React Native. Du MVP à l&apos;application complète, nous vous accompagnons de l&apos;idée au déploiement sur les stores.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Gestion complète de votre activité</span>
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Application mobile multiplateforme (React Native)</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Workflows personnalisés</span>
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Application web progressive (PWA)</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>Reporting et analytics intégrés</span>
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Développement agile et itératif</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Publication sur App Store et Google Play</span>
                 </li>
               </ul>
               <Link 
-                href="/services" 
+                href="/application-mobile" 
                 className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all group"
               >
-                En savoir plus
+                Découvrir notre offre application mobile
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
-            {/* Sites web */}
+            {/* Création de site e-commerce */}
             <div className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover group">
-              <div className="mb-6 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 h-48 flex items-center justify-center">
-                <Image 
-                  src="/images/undraw_landing-page_zc5e.svg" 
-                  alt="Création de sites web modernes" 
-                  width={400} 
-                  height={300} 
-                  className="w-full h-full object-contain" 
-                />
+              <div className="mb-6">
+                <ImagePlaceholder label="Illustration site e-commerce" height={200} />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Sites web business</h3>
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed h-24">
-                Un site web pensé comme un véritable outil au service de votre activité et de votre croissance.
+              <h3 className="text-2xl font-bold mb-4">Création de site e-commerce</h3>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Vendez en ligne avec une boutique performante et facile à gérer. Nous maîtrisons les principales plateformes du marché pour vous proposer la solution la plus adaptée.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Génération de leads qualifiés</span>
+                  <span>Prestashop, Shopify, WooCommerce</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Optimisé pour la conversion</span>
+                  <span>Catalogue produits, paiement sécurisé, livraison</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Performance et SEO premium</span>
+                  <span>Design optimisé pour la conversion</span>
+                </li>
+                <li className="flex items-start gap-2 text-sm">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Accompagnement post-lancement</span>
                 </li>
               </ul>
               <Link 
-                href="/services" 
+                href="/site-e-commerce" 
                 className="inline-flex items-center text-primary font-bold hover:gap-3 transition-all group"
               >
-                En savoir plus
+                Découvrir notre offre e-commerce
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -262,78 +167,148 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Notre Processus */}
+      {/* Pourquoi travailler avec nous */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Pourquoi travailler avec nous ?
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Rapidité */}
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <Zap className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Rapidité de livraison</h3>
+                <p className="text-muted-foreground">
+                  Nous intégrons l&apos;intelligence artificielle dans nos processus de conception et de développement. Là où d&apos;autres agences mettent 2 à 3 mois, nous livrons en quelques semaines — sans compromis sur la qualité.
+                </p>
+              </div>
+
+              {/* Interlocuteur dédié */}
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <Users className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Un interlocuteur dédié</h3>
+                <p className="text-muted-foreground">
+                  Vous échangez directement avec la personne qui travaille sur votre projet. Pas de commercial intermédiaire, pas de process bureaucratique. Communication directe, décisions rapides, réactivité garantie.
+                </p>
+              </div>
+
+              {/* Technologie */}
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <Wrench className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">La bonne technologie pour chaque projet</h3>
+                <p className="text-muted-foreground">
+                  WordPress, React, Next.js, Vue.js, Node.js, PHP, React Native, Prestashop, Shopify... Nous maîtrisons un large éventail de technologies et nous choisissons celle qui correspond le mieux à votre besoin. Pas de solution unique imposée.
+                </p>
+              </div>
+
+              {/* Accompagnement */}
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <CheckCircle2 className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Accompagnement de A à Z</h3>
+                <p className="text-muted-foreground">
+                  De la définition de votre projet à la mise en ligne, en passant par le design, le développement et le référencement : nous gérons l&apos;intégralité de votre projet digital. Et nous restons disponibles après le lancement pour la maintenance et les évolutions.
+                </p>
+              </div>
+
+              {/* Flexibilité */}
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <Rocket className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Flexibilité</h3>
+                <p className="text-muted-foreground">
+                  Nous sommes une agence agile. Selon l&apos;ampleur de votre projet, nous mobilisons les expertises nécessaires parmi notre réseau de développeurs, designers et product owners freelances expérimentés. Vous bénéficiez d&apos;une équipe dimensionnée pour votre projet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Notre façon de travailler */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Notre méthodologie
+                Notre façon de travailler
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Un processus éprouvé pour transformer vos idées en réalité
-              </p>
             </div>
             
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="space-y-8">
               {/* Étape 1 */}
-              <div className="relative">
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-full border-2 border-primary/20">
-                  <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4 font-bold text-xl">
-                    1
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Analyse & Cadrage</h3>
-                  <p className="text-muted-foreground">
-                    Nous explorons vos besoins, vos contraintes et vos objectifs pour définir la solution idéale.
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">On échange</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Vous nous décrivez votre projet, vos objectifs et vos contraintes. Nous vous posons les bonnes questions. À la fin de cet échange, vous recevez un devis détaillé et un planning clair.
                   </p>
                 </div>
-                {/* Arrow connector (hidden on mobile) */}
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
-                  <ArrowRight className="h-8 w-8" />
-                </div>
               </div>
-              
+
               {/* Étape 2 */}
-              <div className="relative">
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-full border-2 border-primary/20">
-                  <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4 font-bold text-xl">
-                    2
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Conception</h3>
-                  <p className="text-muted-foreground">
-                    Design de l'interface, architecture technique et spécifications détaillées du produit.
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">On conçoit</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Nous créons l&apos;arborescence, les maquettes et le design de votre projet. Vous validez chaque étape avant qu&apos;on passe au développement.
                   </p>
                 </div>
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
-                  <ArrowRight className="h-8 w-8" />
-                </div>
               </div>
-              
+
               {/* Étape 3 */}
-              <div className="relative">
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-full border-2 border-primary/20">
-                  <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4 font-bold text-xl">
-                    3
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Développement</h3>
-                  <p className="text-muted-foreground">
-                    Construction itérative du produit avec des points réguliers et des livraisons progressives.
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">On développe</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Notre équipe code votre site ou application en respectant les bonnes pratiques : performance, sécurité, SEO, accessibilité. Vous suivez l&apos;avancement en temps réel.
                   </p>
                 </div>
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-primary">
-                  <ArrowRight className="h-8 w-8" />
+              </div>
+
+              {/* Étape 4 */}
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  4
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">On livre</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Tests complets, mise en ligne, formation à l&apos;utilisation. Votre projet est opérationnel et vous êtes autonome.
+                  </p>
                 </div>
               </div>
-              
-              {/* Étape 4 */}
-              <div>
-                <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 h-full border-2 border-primary/20">
-                  <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center mb-4 font-bold text-xl">
-                    4
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">Lancement</h3>
-                  <p className="text-muted-foreground">
-                    Mise en production, formation de vos équipes et accompagnement post-lancement.
+
+              {/* Étape 5 */}
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  5
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">On reste là</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Maintenance, mises à jour, évolutions fonctionnelles : nous restons votre partenaire technique sur la durée.
                   </p>
                 </div>
               </div>
@@ -342,88 +317,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pourquoi nous choisir */}
+      {/* Nos réalisations */}
       <section className="py-24 bg-gradient-bg-soft">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Pourquoi choisir Turing Software ?
+                Nos réalisations
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Une expertise technique au service de votre réussite
+              <p className="text-xl text-muted-foreground">
+                Nous accompagnons des entreprises de toutes tailles : TPE, PME, startups et indépendants. Chaque projet est une nouvelle aventure et un nouveau défi technique.
               </p>
             </div>
             
-            <div className="max-w-xs mx-auto mb-12">
-              <Image 
-                src="/images/undraw_successful_rtc4.svg" 
-                alt="Réussite de vos projets" 
-                width={300} 
-                height={250} 
-                className="w-full h-auto" 
-              />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ImagePlaceholder label="Capture d'écran projet 1" height={250} />
+              <ImagePlaceholder label="Capture d'écran projet 2" height={250} />
+              <ImagePlaceholder label="Capture d'écran projet 3" height={250} />
+              <ImagePlaceholder label="Capture d'écran projet 4" height={250} />
+              <ImagePlaceholder label="Capture d'écran projet 5" height={250} />
+              <ImagePlaceholder label="Capture d'écran projet 6" height={250} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ils nous font confiance */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Ils nous font confiance
+              </h2>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              {/* Avantage 1 */}
-              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Cog className="h-7 w-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">Expertise technique pointue</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Nos développeurs maîtrisent les technologies modernes et les meilleures pratiques pour construire des produits robustes, sécurisés et performants. Nous ne faisons pas de compromis sur la qualité technique.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Avantage 2 */}
-              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Target className="h-7 w-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">Approche 100% sur-mesure</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Chaque entreprise est unique. Nous concevons des solutions parfaitement adaptées à vos processus métier, sans vous imposer des outils génériques qui ne correspondent pas à vos besoins réels.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Avantage 3 */}
-              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Users className="h-7 w-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">Interlocuteur unique</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Pas de jeu de ping-pong entre commerciaux, chefs de projet et développeurs. Un seul interlocuteur suit votre projet du début à la fin pour une communication fluide et efficace.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Avantage 4 */}
-              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Rocket className="h-7 w-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">Livraison garantie</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      Nous nous engageons sur des délais réalistes et tenons nos promesses. Gestion de projet rigoureuse, livraisons régulières et transparence totale sur l'avancement de votre projet.
-                    </p>
-                  </div>
-                </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <ImagePlaceholder label="Logo client 1" height={100} />
+              <ImagePlaceholder label="Logo client 2" height={100} />
+              <ImagePlaceholder label="Logo client 3" height={100} />
+              <ImagePlaceholder label="Logo client 4" height={100} />
+              <ImagePlaceholder label="Logo client 5" height={100} />
+              <ImagePlaceholder label="Logo client 6" height={100} />
+              <ImagePlaceholder label="Logo client 7" height={100} />
+              <ImagePlaceholder label="Logo client 8" height={100} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Technologies que nous maîtrisons
+              </h2>
+            </div>
+            
+            <div className="bg-card rounded-2xl p-8 shadow-sm border border-border">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left py-4 px-4 font-bold">Domaine</th>
+                      <th className="text-left py-4 px-4 font-bold">Technologies</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="py-4 px-4 font-semibold">Sites web</td>
+                      <td className="py-4 px-4 text-muted-foreground">WordPress, React, Next.js, Vue.js, PHP, Node.js</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-4 px-4 font-semibold">Applications mobiles</td>
+                      <td className="py-4 px-4 text-muted-foreground">React Native</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-4 px-4 font-semibold">E-commerce</td>
+                      <td className="py-4 px-4 text-muted-foreground">Prestashop, Shopify, WooCommerce</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-4 px-4 font-semibold">Hébergement</td>
+                      <td className="py-4 px-4 text-muted-foreground">Vercel, OVH, AWS</td>
+                    </tr>
+                    <tr>
+                      <td className="py-4 px-4 font-semibold">Outils</td>
+                      <td className="py-4 px-4 text-muted-foreground">Git, Figma, VS Code, CI/CD</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -431,44 +415,18 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#0d4a73] via-[#116cb1] to-[#0f5f9e]">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="bg-primary text-primary-foreground py-20">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
-              Prêt à donner vie à votre projet ?
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Vous avez un projet ?
             </h2>
-            <p className="text-xl mb-10 text-white max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-              Discutons de vos besoins et découvrons ensemble comment nous pouvons vous aider à atteindre vos objectifs avec une solution digitale sur-mesure.
+            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+              Que vous ayez une idée précise ou simplement l&apos;envie de vous lancer, nous sommes là pour en discuter. Décrivez-nous votre besoin et recevez un devis gratuit sous 24h.
             </p>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#116cb1] rounded-xl font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl"
-            >
-              Démarrer la conversation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            
-            {/* Additional info */}
-            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white text-sm font-semibold">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Premier échange gratuit</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Devis sous 48h</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5" />
-                <span>Sans engagement</span>
-              </div>
-            </div>
+            <Button asChild size="lg" variant="secondary">
+              <Link href="/contact">Demander un devis gratuit</Link>
+            </Button>
           </div>
         </div>
       </section>

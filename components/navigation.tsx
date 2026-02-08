@@ -49,7 +49,7 @@ export function Navigation() {
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={link.href!}
                 className={`text-base font-semibold transition-all relative group ${
                   pathname === link.href
                     ? "text-primary"
@@ -106,7 +106,7 @@ export function Navigation() {
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={link.href!}
                   className={`text-base font-semibold transition-colors px-4 py-2 rounded-lg ${
                     pathname === link.href
                       ? "text-primary bg-primary/10"

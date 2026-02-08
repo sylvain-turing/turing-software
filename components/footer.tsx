@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-muted to-muted/50 border-t-2 border-primary/10">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-primary mb-4">
@@ -27,20 +27,34 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* Navigation Links */}
+          {/* Services */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Navigation</h3>
+            <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors inline-block hover:translate-x-1 transition-transform"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/creation-site-web"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-block hover:translate-x-1 transition-transform"
+                >
+                  Création de site web
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/application-mobile"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-block hover:translate-x-1 transition-transform"
+                >
+                  Application mobile
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/site-e-commerce"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors inline-block hover:translate-x-1 transition-transform"
+                >
+                  Site e-commerce
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${COMPANY_INFO.name} - ${COMPANY_INFO.tagline}`,
   description: COMPANY_INFO.tagline,
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 // Company Information
 export const COMPANY_INFO = {
   name: "Turing Software",
-  tagline: "Nous concevons des produits web sur-mesure (SaaS, ERP, sites) adaptés à votre métier.",
+  tagline: "Agence web spécialisée en création de sites internet, applications mobiles et sites e-commerce.",
   siret: "94405082200013",
   phone: "06 84 25 95 94",
   email: "contact@turing-software.com",
@@ -17,9 +17,17 @@ export const COMPANY_INFO = {
 export const formatAddress = (address: typeof COMPANY_INFO.address) => 
   `${address.street}, ${address.postalCode} ${address.city}, ${address.country}`;
 
+// Navigation link types
+export type NavLink = {
+  href?: string;
+  label: string;
+  children?: { href: string; label: string }[];
+};
+
 // Navigation
-export const NAV_LINKS = [
+export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Accueil" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" }
+  { href: "/creation-site-web", label: "Création de site web" },
+  { href: "/application-mobile", label: "Application mobile" },
+  { href: "/site-e-commerce", label: "Site e-commerce" },
 ];
