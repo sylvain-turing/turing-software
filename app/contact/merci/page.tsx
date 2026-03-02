@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import { ContactInfo } from "@/components/contact-info";
 import { Button } from "@/components/ui/button";
+import { PostHogPageView } from "@/components/posthog-page-view";
 
 export const metadata: Metadata = {
   title: "Merci pour votre message",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function MerciPage() {
   return (
     <div className="flex flex-col">
+      <PostHogPageView event="thank_you_page_viewed" properties={{ page: "contact_merci", funnel_step: "conversion_complete" }} />
       {/* Page Header */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">

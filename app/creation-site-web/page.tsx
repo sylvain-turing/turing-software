@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Metadata } from "next";
+import { PostHogPageView } from "@/components/posthog-page-view";
 
 export const metadata: Metadata = {
   title: "Création de site internet professionnel | Agence web sur mesure",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function CreationSiteWeb() {
   return (
     <div className="flex flex-col">
+      <PostHogPageView event="web_creation_page_viewed" properties={{ service: "creation_site_web" }} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">

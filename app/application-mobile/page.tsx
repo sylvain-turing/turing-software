@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Metadata } from "next";
+import { PostHogPageView } from "@/components/posthog-page-view";
 
 export const metadata: Metadata = {
   title: "Création d'application mobile sur mesure | iOS & Android",
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function ApplicationMobile() {
   return (
     <div className="flex flex-col">
+      <PostHogPageView event="mobile_app_page_viewed" properties={{ service: "application_mobile" }} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import posthog from "posthog-js";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -57,10 +58,19 @@ export function ContactForm() {
         throw new Error("Erreur lors de l'envoi du message");
       }
 
+      posthog.capture("contact_form_submitted", {
+        has_phone: !!values.phone,
+        message_length: values.message.length,
+      });
+
       // Redirect to thank you page
       router.push("/contact/merci");
     } catch (error) {
       console.error("Erreur:", error);
+      posthog.capture("contact_form_error", {
+        error_message: error instanceof Error ? error.message : "unknown_error",
+      });
+      posthog.captureException(error);
       alert("Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.");
       setIsSubmitting(false);
     }

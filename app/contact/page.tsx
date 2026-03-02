@@ -2,10 +2,12 @@ import { ContactForm } from "@/components/contact-form";
 import { ContactInfo } from "@/components/contact-info";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import { PostHogPageView } from "@/components/posthog-page-view";
 
 export default function Contact() {
   return (
     <div className="flex flex-col">
+      <PostHogPageView event="contact_page_viewed" properties={{ page: "contact" }} />
       {/* Page Header */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">

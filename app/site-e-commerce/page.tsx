@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { PostHogPageView } from "@/components/posthog-page-view";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
 export default function EcommercePage() {
   return (
     <div className="min-h-screen">
+      <PostHogPageView event="ecommerce_page_viewed" properties={{ service: "site_ecommerce" }} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-primary/5 to-background py-20 md:py-28">
         <div className="container mx-auto px-4">

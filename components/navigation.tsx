@@ -7,6 +7,7 @@ import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, COMPANY_INFO } from "@/lib/constants";
 import { usePathname } from "next/navigation";
+import posthog from "posthog-js";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -65,6 +66,7 @@ export function Navigation() {
             <a
               href={`tel:${COMPANY_INFO.phone}`}
               className="flex items-center gap-2 text-base font-semibold text-primary hover:text-primary/80 transition-all hover:gap-3"
+              onClick={() => posthog.capture("phone_clicked", { location: "desktop_nav" })}
             >
               <Phone className="h-4 w-4" />
               {COMPANY_INFO.phone}
@@ -82,6 +84,7 @@ export function Navigation() {
             <a
               href={`tel:${COMPANY_INFO.phone}`}
               className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+              onClick={() => posthog.capture("phone_clicked", { location: "mobile_nav" })}
             >
               <Phone className="h-4 w-4" />
             </a>
@@ -120,6 +123,7 @@ export function Navigation() {
               <a
                 href={`tel:${COMPANY_INFO.phone}`}
                 className="flex items-center gap-2 text-base font-semibold text-primary hover:text-primary/80 transition-colors px-4 py-2"
+                onClick={() => posthog.capture("phone_clicked", { location: "mobile_menu" })}
               >
                 <Phone className="h-4 w-4" />
                 {COMPANY_INFO.phone}
