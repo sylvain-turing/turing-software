@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
@@ -52,29 +53,28 @@ export function CybermonoContact() {
     <main className={poppins.className} style={{ fontFamily: `${poppins.style.fontFamily}, sans-serif` }}>
       {/* ═══════════ HERO ═══════════ */}
       <section
-        className="relative min-h-[40vh] md:min-h-[50vh] flex items-start md:items-center overflow-hidden -mt-20 pt-20"
+        className="relative flex items-start overflow-hidden -mt-20 pt-20"
         style={{ background: "#000000" }}
       >
+        <Image
+          src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&q=80"
+          alt="Contact"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
         <div className="absolute inset-0" style={circuitGridLight} />
         <div className="absolute inset-0" style={scanlineStyleLight} />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] pt-4 pb-10 md:py-24 lg:py-0">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 pt-4 pb-6 md:py-8">
           <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-2 h-2 bg-white" />
-              <span className="text-[10px] uppercase tracking-[0.4em] text-white/60" style={{ fontFamily: "monospace" }}>COMM.SYS — CONTACT</span>
-              <div className="w-12 h-px bg-white/20" />
-            </div>
             <h1
-              className="text-white leading-[0.9] tracking-tight mb-6"
-              style={{ fontFamily: poppins.style.fontFamily, fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
+              className="text-white leading-[0.9] tracking-tight"
+              style={{ fontFamily: poppins.style.fontFamily, fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 900 }}
             >
               <span className="block text-[0.5em] text-white/60 mb-2">PARLONS DE</span>
               VOTRE PROJET
             </h1>
-            <p className="text-white/60 max-w-lg text-lg leading-relaxed" style={{ fontFamily: "system-ui, sans-serif" }}>
-              Une idee, un projet, une question ? Contactez-nous et recevez une reponse sous 24 heures.
-            </p>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export function CybermonoContact() {
       </section>
 
       {/* ═══════════ FORM + INFO ═══════════ */}
-      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "#F7F7F7" }}>
+      <section className="relative py-6 md:py-12" style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
         <div className="max-w-[1400px] mx-auto px-0 md:px-12 relative z-10">
@@ -93,11 +93,13 @@ export function CybermonoContact() {
                 <div className="relative p-4 md:p-12 bg-white" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <HudBrackets />
                   <div className="mb-8">
-                    <span className="text-[10px] uppercase tracking-[0.4em] block mb-3" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>FORM.INPUT — MESSAGE</span>
-                    <h2 className="text-3xl md:text-4xl tracking-tight mb-2" style={{ fontFamily: poppins.style.fontFamily, color: ACCENT, fontWeight: 800 }}>
+                    <h2 className="text-3xl md:text-4xl tracking-tight mb-3" style={{ fontFamily: poppins.style.fontFamily, color: ACCENT, fontWeight: 800 }}>
                       ENVOYEZ-NOUS UN MESSAGE
                     </h2>
-                    <div className="w-12 h-1 bg-black" />
+                    <div className="w-12 h-1 bg-black mb-4" />
+                    <p className="text-sm leading-relaxed" style={{ fontFamily: "system-ui, sans-serif", color: ACCENT, opacity: 0.5 }}>
+                      Une idee, un projet, une question ? Contactez-nous et recevez une reponse sous 24 heures.
+                    </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
