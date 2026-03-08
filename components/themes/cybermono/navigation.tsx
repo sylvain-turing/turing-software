@@ -57,7 +57,7 @@ export function CybermonoNavigation() {
             className={`relative z-10 tracking-normal text-3xl select-none transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}
             style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
           >
-            TURING
+            AGENCE TURING
           </Link>
 
           {/* Desktop links */}
@@ -131,7 +131,7 @@ export function CybermonoNavigation() {
             className="text-white tracking-normal text-3xl"
             style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
           >
-            TURING
+            AGENCE TURING
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
