@@ -10,10 +10,13 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const footerLinks = [
+const serviceLinks = [
   { href: "/creation-site-web", label: "Création site web" },
   { href: "/sur-mesure", label: "Sur-mesure" },
   { href: "/site-e-commerce", label: "E-commerce" },
+];
+
+const navLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/a-propos", label: "L'agence" },
   { href: "/contact", label: "Contact" },
@@ -41,18 +44,6 @@ export function CybermonoFooter() {
                     className="text-white text-lg tracking-[0.1em] mb-1"
                     style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
                   >
-                    ADRESSE
-                  </h4>
-                  <p className="text-white/70 text-sm" style={{ fontFamily: "system-ui, sans-serif" }}>
-                    12 Rue de la Paix, 75002 Paris, France
-                  </p>
-                </div>
-
-                <div>
-                  <h4
-                    className="text-white text-lg tracking-[0.1em] mb-1"
-                    style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
-                  >
                     EMAIL
                   </h4>
                   <p className="text-white/70 text-sm" style={{ fontFamily: "system-ui, sans-serif" }}>
@@ -71,19 +62,31 @@ export function CybermonoFooter() {
                     +33 1 23 45 67 89
                   </p>
                 </div>
+
+                <div>
+                  <h4
+                    className="text-white text-lg tracking-[0.1em] mb-1"
+                    style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
+                  >
+                    HORAIRES
+                  </h4>
+                  <p className="text-white/70 text-sm" style={{ fontFamily: "system-ui, sans-serif" }}>
+                    Lun — Ven : 9h00 — 18h00
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* ── Column 2: Liens utiles ── */}
+            {/* ── Column 2: Nos services ── */}
             <div>
               <h4
                 className="text-white text-2xl tracking-[0.1em] mb-8"
                 style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
               >
-                LIENS UTILES
+                NOS SERVICES
               </h4>
               <ul className="space-y-3">
-                {footerLinks.map((l) => (
+                {serviceLinks.map((l) => (
                   <li key={l.href}>
                     <Link
                       href={l.href}
@@ -97,24 +100,27 @@ export function CybermonoFooter() {
               </ul>
             </div>
 
-            {/* ── Column 3: Localisation ── */}
+            {/* ── Column 3: Navigation ── */}
             <div>
               <h4
                 className="text-white text-2xl tracking-[0.1em] mb-8"
                 style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
               >
-                LOCALISATION
+                NAVIGATION
               </h4>
-              <p
-                className="text-white/70 text-sm leading-relaxed"
-                style={{ fontFamily: "system-ui, sans-serif" }}
-              >
-                Paris, France
-                <br />
-                Du lundi au vendredi
-                <br />
-                9h00 — 18h00
-              </p>
+              <ul className="space-y-3">
+                {navLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="text-white/70 hover:text-white text-sm uppercase tracking-[0.12em] transition-colors duration-200"
+                      style={{ fontFamily: "system-ui, sans-serif", fontWeight: 500 }}
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
