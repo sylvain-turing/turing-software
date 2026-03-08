@@ -79,6 +79,33 @@
   --sidebar-ring: #FFFFFF;
 }
 
+/* ── Theme layout tokens (mobile-first) ── */
+:root {
+  --section-py: 3.5rem;       /* py-14 */
+  --section-py-lg: 3.5rem;
+  --section-px: 1.5rem;       /* px-6 */
+  --container-max: 1400px;
+  --hero-min-h: 70vh;
+  --heading-xl: clamp(2.2rem, 6vw, 5rem);
+  --heading-lg: clamp(2rem, 5vw, 3.5rem);
+  --heading-md: clamp(1.5rem, 4vw, 2.5rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-xs: 0.75rem;
+  --gap-section: 2rem;
+  --gap-cards: 1.5rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --section-py: 6rem;       /* py-24 */
+    --section-py-lg: 8rem;    /* py-32 */
+    --section-px: 3rem;       /* px-12 */
+    --hero-min-h: 100vh;
+    --gap-section: 4rem;
+    --gap-cards: 2rem;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -126,6 +153,48 @@
   .reveal-visible {
     opacity: 1;
     transform: translate(0, 0) scale(1);
+  }
+
+  /* ── Theme layout utilities ── */
+  .section-padding {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+    padding-left: var(--section-px);
+    padding-right: var(--section-px);
+  }
+  .section-py {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+  .section-py-lg {
+    padding-top: var(--section-py-lg);
+    padding-bottom: var(--section-py-lg);
+  }
+  .section-px {
+    padding-left: var(--section-px);
+    padding-right: var(--section-px);
+  }
+  .container-theme {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--section-px);
+    padding-right: var(--section-px);
+  }
+  .heading-xl {
+    font-size: var(--heading-xl);
+  }
+  .heading-lg {
+    font-size: var(--heading-lg);
+  }
+  .heading-md {
+    font-size: var(--heading-md);
+  }
+  .gap-section {
+    gap: var(--gap-section);
+  }
+  .gap-cards {
+    gap: var(--gap-cards);
   }
 
   @keyframes marquee {

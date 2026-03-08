@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/constants";
-import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
+import { poppins, ACCENT, GRAY, layout, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
 
 const contactInfo = [
   { icon: MapPin, label: "ADRESSE", value: `${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.postalCode} ${COMPANY_INFO.address.city}`, href: `https://maps.google.com/?q=${encodeURIComponent(`${COMPANY_INFO.address.street}, ${COMPANY_INFO.address.postalCode} ${COMPANY_INFO.address.city}`)}` },
@@ -82,7 +82,7 @@ export function CybermonoContact() {
       </section>
 
       {/* ═══════════ FORM + INFO ═══════════ */}
-      <section className="relative py-10 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
         <div className="max-w-[1400px] mx-auto px-0 md:px-12 relative z-10">

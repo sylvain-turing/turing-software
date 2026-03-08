@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ChevronRight, ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
+import { poppins, ACCENT, GRAY, layout, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
 
 const projects = [
   {
@@ -94,10 +94,10 @@ export function CybermonoPortfolio() {
       </section>
 
       {/* ═══════════ STATS ═══════════ */}
-      <section className="relative py-14 md:py-16" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className={`relative ${layout.sectionPy}`} style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { value: 150, suffix: "+", label: "PROJETS LIVRES" },
@@ -124,9 +124,9 @@ export function CybermonoPortfolio() {
       </section>
 
       {/* ═══════════ PROJECTS GRID ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "white" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
               <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>GRID.VIEW — ALL_PROJECTS</span>
@@ -203,7 +203,7 @@ export function CybermonoPortfolio() {
       {/* ═══════════ CTA ═══════════ */}
       <section className="relative" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-20 pt-8 relative z-10">
+        <div className={`${layout.container} pb-20 pt-8 relative z-10`}>
           <ScrollReveal direction="up">
             <Link href="/contact" className="relative block overflow-hidden group" style={{ minHeight: "280px" }}>
               <div className="absolute inset-0 transition-colors duration-500" style={{ backgroundColor: "#F7F7F7" }} />

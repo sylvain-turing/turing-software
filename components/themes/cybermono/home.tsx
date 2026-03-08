@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowLeft, Facebook, Linkedin, Youtube, ChevronRight, ChevronLeft, Quote, Star } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets, TeamSection } from "./shared";
+import { poppins, ACCENT, GRAY, layout, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets, TeamSection } from "./shared";
 
 const services = [
   {
@@ -129,7 +129,7 @@ function TestimonialsSection() {
   const visible = testimonials.slice(page * perPage, page * perPage + perPage);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "#F7F7F7" }}>
+    <section className={`relative ${layout.sectionPyLg} overflow-hidden`} style={{ backgroundColor: "#F7F7F7" }}>
       <div className="absolute inset-0" style={circuitGrid} />
       <div className="absolute inset-0" style={scanlineStyle} />
       <div className="relative z-10">
@@ -314,12 +314,12 @@ export function CybermonoHome() {
 
       {/* ═══════════ SERVICES ═══════════ */}
       <section
-        className="relative py-14 md:py-36"
+        className={`relative ${layout.sectionPyLg}`}
         style={{ backgroundColor: "#F7F7F7" }}
       >
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
               {services.map((s) => (
@@ -373,9 +373,9 @@ export function CybermonoHome() {
         "photo-1551434678-e076c223a692", // 9 — dev working
         "photo-1559136555-9303baea8ebd", // 16 — abstract tech
       ].map((photoId, idx) => (
-      <section key={idx} className="relative py-14 md:py-32" style={{ backgroundColor: "white" }}>
+      <section key={idx} className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <div className="text-center mb-4">
             <span className="text-2xl font-bold px-4 py-2 bg-black text-white inline-block" style={{ fontFamily: "monospace" }}>IMAGE {idx + 1}</span>
           </div>
@@ -455,12 +455,12 @@ export function CybermonoHome() {
 
       {/* ═══════════ STATS ═══════════ */}
       <section
-        className="relative py-14 md:py-32"
+        className={`relative ${layout.sectionPyLg}`}
         style={{ backgroundColor: "#F7F7F7" }}
       >
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-16">
               <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>ANALYTICS.MODULE — LIVE_DATA</span>
@@ -518,9 +518,9 @@ export function CybermonoHome() {
       </section>
 
       {/* ═══════════ WHY US ═══════════ */}
-      <section className="relative py-14 md:py-36" style={{ backgroundColor: "white" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-12 md:mb-20">
               <h2
@@ -585,7 +585,7 @@ export function CybermonoHome() {
 
       {/* ═══════════ CLIENTS LOGOS ═══════════ */}
       <section
-        className="relative py-10 md:py-16 overflow-hidden"
+        className={`relative ${layout.sectionPy} overflow-hidden`}
         style={{ backgroundColor: "#F7F7F7", borderTop: "1px solid rgba(0,0,0,0.06)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
       >
         <div className="flex animate-marquee whitespace-nowrap">
@@ -661,10 +661,10 @@ export function CybermonoHome() {
       <TeamSection />
 
       {/* ═══════════ BLOG / ARTICLES ═══════════ */}
-      <section className="relative py-10 md:py-18" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className={`relative ${layout.sectionPy}`} style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-10 md:mb-16">
               <h2

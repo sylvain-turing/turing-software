@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Poppins } from "next/font/google";
 import { Menu, X } from "lucide-react";
+import { layout } from "./shared";
 
 const poppins = Poppins({
   weight: ["400", "600", "800", "900"],
@@ -50,7 +51,7 @@ export function CybermonoNavigation() {
           borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent",
         }}
       >
-        <nav className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-12 h-20">
+        <nav className={`${layout.container} flex items-center justify-between h-20`}>
           {/* Logo */}
           <Link
             href="/"
@@ -61,14 +62,14 @@ export function CybermonoNavigation() {
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-2 min-[1350px]:gap-5 2xl:gap-8">
             {navLinks.map((l) => {
               const isActive = pathname.startsWith(l.href);
               return (
-                <li key={l.href} className={`flex items-center${l.gap ? " mr-4" : ""}`}>
+                <li key={l.href} className={`flex items-center${l.gap ? " mr-0 min-[1350px]:mr-2 2xl:mr-4" : ""}`}>
                   <Link
                     href={l.href}
-                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/60 hover:text-black" : "text-white/60 hover:text-white")}`}
+                    className={`relative text-[11px] min-[1350px]:text-[12px] 2xl:text-[13px] uppercase tracking-[0.06em] min-[1350px]:tracking-[0.12em] 2xl:tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/60 hover:text-black" : "text-white/60 hover:text-white")}`}
                     style={{ fontFamily: "system-ui, sans-serif", height: "16px", lineHeight: "16px", fontWeight: 700 }}
                   >
                     {/* Invisible bold text to reserve width */}
@@ -91,7 +92,7 @@ export function CybermonoNavigation() {
             <li>
               <Link
                 href="/contact"
-                className={`ml-2 inline-flex items-center px-6 py-2.5 text-[13px] uppercase tracking-[0.2em] border-2 transition-all duration-300 ${pathname === "/contact" ? (scrolled ? "bg-black text-white border-black" : "bg-white text-black border-white") : (scrolled ? "text-black border-black/40 hover:bg-black hover:text-white hover:border-black" : "text-white border-white/40 hover:bg-white hover:text-black hover:border-white")}`}
+                className={`ml-0 min-[1350px]:ml-1 2xl:ml-2 inline-flex items-center px-3 min-[1350px]:px-4 2xl:px-6 py-2 2xl:py-2.5 text-[11px] min-[1350px]:text-[12px] 2xl:text-[13px] uppercase tracking-[0.08em] min-[1350px]:tracking-[0.14em] 2xl:tracking-[0.2em] border-2 transition-all duration-300 ${pathname === "/contact" ? (scrolled ? "bg-black text-white border-black" : "bg-white text-black border-white") : (scrolled ? "text-black border-black/40 hover:bg-black hover:text-white hover:border-black" : "text-white border-white/40 hover:bg-white hover:text-black hover:border-white")}`}
                 style={{
                   fontFamily: "system-ui, sans-serif",
                   fontWeight: 600,

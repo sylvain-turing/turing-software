@@ -13,6 +13,27 @@ export const poppins = Poppins({
 export const ACCENT = "#111111";
 export const GRAY = "#888888";
 
+/* ── Layout class constants (consume CSS variables from globals.css) ── */
+export const layout = {
+  /** Section vertical padding: 3.5rem mobile → 6rem desktop */
+  sectionPy: "section-py",
+  /** Section vertical padding large: 3.5rem mobile → 8rem desktop */
+  sectionPyLg: "section-py-lg",
+  /** Section horizontal padding: 1.5rem mobile → 3rem desktop */
+  sectionPx: "section-px",
+  /** Full section padding (py + px) */
+  sectionPadding: "section-padding",
+  /** Max-width container with auto margins + horizontal padding */
+  container: "container-theme",
+  /** Heading sizes */
+  headingXl: "heading-xl",
+  headingLg: "heading-lg",
+  headingMd: "heading-md",
+  /** Gaps */
+  gapSection: "gap-section",
+  gapCards: "gap-cards",
+} as const;
+
 export const scanlineStyle = {
   backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px)",
   pointerEvents: "none" as const,
@@ -63,10 +84,10 @@ export function TeamSection({ label, title = "NOTRE EQUIPE", subtitle = "des tal
   members?: { name: string; role: string; img: string }[];
 }) {
   return (
-    <section className="relative py-14 md:py-32" style={{ backgroundColor: "white" }}>
+    <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
       <div className="absolute inset-0" style={circuitGrid} />
       <div className="absolute inset-0" style={scanlineStyle} />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+      <div className={`${layout.container} relative z-10`}>
         <ScrollReveal direction="up">
           <div className="text-center mb-16">
             {label && <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>{label}</span>}
@@ -119,10 +140,10 @@ export function TechStack({ technologies, label = "STACK.TECH — TOOLS", title 
   subtitle?: string;
 }) {
   return (
-    <section className="relative py-14 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
+    <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "#F7F7F7" }}>
       <div className="absolute inset-0" style={circuitGrid} />
       <div className="absolute inset-0" style={scanlineStyle} />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+      <div className={`${layout.container} relative z-10`}>
         <ScrollReveal direction="up">
           <div className="text-center mb-16">
             <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>{label}</span>

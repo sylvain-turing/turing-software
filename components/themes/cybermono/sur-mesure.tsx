@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ChevronRight, Layers, Server, Shield, GitBranch, Cpu, Database, Cloud, Settings, BarChart3, Lock, Workflow, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets, TechStack } from "./shared";
+import { poppins, ACCENT, GRAY, layout, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets, TechStack } from "./shared";
 
 const solutions = [
   {
@@ -123,10 +123,10 @@ export function CybermonoSurMesure() {
       </section>
 
       {/* ═══════════ SOLUTIONS ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
               <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>CATALOG.CUSTOM — SOLUTIONS</span>
@@ -178,9 +178,9 @@ export function CybermonoSurMesure() {
       </section>
 
       {/* ═══════════ USE CASES ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "white" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
               <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>USE.CASES — EXEMPLES</span>
@@ -223,10 +223,10 @@ export function CybermonoSurMesure() {
       </section>
 
       {/* ═══════════ PROCESS ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
               <span className="text-[10px] uppercase tracking-[0.4em] block mb-4" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>WORKFLOW.SYS — PROCESS</span>
@@ -277,7 +277,7 @@ export function CybermonoSurMesure() {
         <div className="absolute inset-0 bg-black" />
         <div className="absolute inset-0" style={circuitGridLight} />
         <div className="absolute inset-0" style={scanlineStyleLight} />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 py-24 md:py-32">
+        <div className={`relative z-10 ${layout.container} ${layout.sectionPyLg}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
               <div>
@@ -322,9 +322,9 @@ export function CybermonoSurMesure() {
       <TechStack technologies={technologies} label="STACK.TECH — BACKEND & INFRA" subtitle="des technologies robustes" />
 
       {/* ═══════════ STATS ═══════════ */}
-      <section className="relative py-24 md:py-28" style={{ backgroundColor: "white" }}>
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className={`${layout.container} relative z-10`}>
           <ScrollReveal direction="up">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
               {[
@@ -365,7 +365,7 @@ export function CybermonoSurMesure() {
       {/* ═══════════ CTA ═══════════ */}
       <section className="relative" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-20 pt-8 relative z-10">
+        <div className={`${layout.container} pb-20 pt-8 relative z-10`}>
           <ScrollReveal direction="up">
             <Link
               href="/contact"

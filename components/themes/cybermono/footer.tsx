@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Poppins } from "next/font/google";
+import { layout } from "./shared";
 
 const poppins = Poppins({
   weight: ["400", "600", "800", "900"],
@@ -23,7 +24,7 @@ export function CybermonoFooter() {
   return (
     <footer>
       <div style={{ backgroundColor: "#0A0A0A" }}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
+        <div className={`${layout.container} py-16 md:py-20`}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* ── Column 1: Brand + contact info ── */}
             <div>
@@ -121,7 +122,7 @@ export function CybermonoFooter() {
 
         {/* Bottom copyright bar */}
         <div className="border-t border-white/10">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-6">
+          <div className={`${layout.container} py-6`}>
             <p
               className="text-white/40 text-xs tracking-[0.1em] text-center"
               style={{ fontFamily: "system-ui, sans-serif" }}
