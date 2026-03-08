@@ -13,12 +13,12 @@ const poppins = Poppins({
 });
 
 const navLinks = [
-  { href: "/creation-site-web", label: "Création site web" },
-  { href: "/sur-mesure", label: "Sur-mesure" },
-  { href: "/application-mobile", label: "Application mobile" },
-  { href: "/site-e-commerce", label: "E-commerce" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/a-propos", label: "L'agence" },
+  { href: "/creation-site-web", label: "Création site web", gap: false },
+  { href: "/sur-mesure", label: "Sur-mesure", gap: false },
+  { href: "/application-mobile", label: "Application mobile", gap: false },
+  { href: "/site-e-commerce", label: "E-commerce", gap: true },
+  { href: "/portfolio", label: "Portfolio", gap: false },
+  { href: "/a-propos", label: "L'agence", gap: false },
 ];
 
 export function CybermonoNavigation() {
@@ -57,23 +57,23 @@ export function CybermonoNavigation() {
             className={`relative z-10 tracking-normal text-3xl select-none transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}
             style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
           >
-            AGENCE TURING
+            TURING
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden lg:flex items-center gap-4">
+          <ul className="hidden lg:flex items-center gap-8">
             {navLinks.map((l) => {
               const isActive = pathname.startsWith(l.href);
               return (
-                <li key={l.href} className="flex items-center">
+                <li key={l.href} className={`flex items-center${l.gap ? " mr-4" : ""}`}>
                   <Link
                     href={l.href}
-                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/50 hover:text-black" : "text-white/50 hover:text-white")}`}
-                    style={{ fontFamily: "system-ui, sans-serif", height: "16px", lineHeight: "16px" }}
+                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/80 hover:text-black" : "text-white/80 hover:text-white")}`}
+                    style={{ fontFamily: "system-ui, sans-serif", height: "16px", lineHeight: "16px", fontWeight: 700 }}
                   >
                     {/* Invisible bold text to reserve width */}
                     <span className="invisible font-bold">{l.label}</span>
-                    <span className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 ${isActive ? "-translate-y-full" : "group-hover:-translate-y-full"}`} style={{ fontWeight: 500 }}>
+                    <span className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 font-bold ${isActive ? "-translate-y-full" : "group-hover:-translate-y-full"}`}>
                       {l.label}
                     </span>
                     <span
@@ -123,51 +123,66 @@ export function CybermonoNavigation() {
           visibility: mobileOpen ? "visible" : "hidden",
         }}
       >
-        {/* Top bar inside overlay */}
+        {/* Top bar */}
         <div className="flex items-center justify-between px-6 h-20">
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="text-white tracking-normal text-3xl"
+            className="text-white tracking-normal text-2xl"
             style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
           >
-            AGENCE TURING
+            TURING
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
             className="text-white p-2"
             aria-label="Fermer le menu"
           >
-            <X className="w-7 h-7" />
+            <X className="w-6 h-6" />
           </button>
         </div>
 
-        {/* Links */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-6">
-          {[...navLinks, { href: "/contact", label: "Contact" }].map((l, i) => {
-            const isActive = pathname.startsWith(l.href);
-            return (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMobileOpen(false)}
-              className={`${isActive ? "text-white tracking-[0.2em]" : "text-white/80 hover:text-white tracking-[0.1em] hover:tracking-[0.2em]"} text-4xl md:text-5xl uppercase transition-all duration-300`}
-              style={{
-                fontFamily: poppins.style.fontFamily,
-                transitionDelay: mobileOpen ? `${i * 50}ms` : "0ms",
-                transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
-                opacity: mobileOpen ? 1 : 0,
-                transition: "all 0.4s cubic-bezier(0.22,1,0.36,1)",
-              }}
-            >
-              {l.label}
-            </Link>
-            );
-          })}
-        </div>
+        <div className="w-full h-px bg-white/10" />
 
-        {/* Bottom accent line */}
-        <div className="h-1 w-full bg-white/20" />
+        {/* Links */}
+        <nav className="flex-1 flex flex-col px-6 pt-4">
+          <div className="space-y-0">
+            {[...navLinks, { href: "/contact", label: "Contact", gap: false }].map((l, i) => {
+              const isActive = pathname.startsWith(l.href);
+              const isServices = i < 4;
+              return (
+                <div key={l.href}>
+                  {i === 4 && <div className="h-px bg-white/10 my-4" />}
+                  <Link
+                    href={l.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block py-2 uppercase transition-all duration-300 ${isActive ? "text-white" : "text-white/80"}`}
+                    style={{
+                      fontFamily: poppins.style.fontFamily,
+                      fontWeight: isActive ? 800 : 600,
+                      fontSize: "1.3rem",
+                      letterSpacing: isActive ? "0.15em" : "0.08em",
+                      transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
+                      transform: mobileOpen ? "translateX(0)" : "translateX(-20px)",
+                      opacity: mobileOpen ? 1 : 0,
+                      transition: "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+                    }}
+                  >
+                    {l.label}
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* Bottom info */}
+        <div className="px-6 pb-8">
+          <div className="h-px bg-white/10 mb-6" />
+          <p className="text-[10px] uppercase tracking-[0.3em] text-white/30" style={{ fontFamily: "monospace" }}>
+            &copy; 2026 Turing Software
+          </p>
+        </div>
       </div>
     </>
   );

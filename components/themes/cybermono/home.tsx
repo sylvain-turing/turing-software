@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowLeft, Facebook, Twitter, Youtube, ChevronRight, ChevronLeft, Quote, Star } from "lucide-react";
+import { ArrowRight, ArrowLeft, Facebook, Linkedin, Youtube, ChevronRight, ChevronLeft, Quote, Star } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
+import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets, TeamSection } from "./shared";
 
 const services = [
   {
@@ -53,26 +53,6 @@ const testimonials = [
   { name: "ANTOINE VASSEUR", role: "Fondateur, GreenLogic", text: "De la strategie au deploiement, tout a ete fluide. Notre taux de conversion a augmente de 40% en trois mois.", source: "Google" },
 ];
 
-const blogPosts = [
-  {
-    img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
-    cat: "DESIGN",
-    title: "Les tendances UI/UX qui domineront 2026",
-    excerpt: "Decouvrez les directions creatives qui redefinissent l'experience utilisateur cette annee.",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80",
-    cat: "MOBILE",
-    title: "Flutter vs React Native : le guide definitif",
-    excerpt: "Analyse comparative pour choisir le meilleur framework mobile pour votre projet.",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    cat: "STRATEGIE",
-    title: "Multiplier son ROI grace au design systeme",
-    excerpt: "Comment un design system bien structure peut reduire vos couts et accelerer vos livraisons.",
-  },
-];
 
 function TestimonialCard({ t, onClick }: { t: typeof testimonials[number]; onClick?: () => void }) {
   return (
@@ -320,7 +300,7 @@ export function CybermonoHome() {
           {/* Social icons */}
           <div className="flex items-center gap-5 mt-20 lg:mt-32">
             <div className="w-8 h-px mr-2 bg-white/40" />
-            {[Facebook, Twitter, Youtube].map((Icon, i) => (
+            {[Facebook, Linkedin, Youtube].map((Icon, i) => (
               <button key={i} className="text-white/50 hover:text-white transition-colors duration-300">
                 <Icon className="w-5 h-5" />
               </button>
@@ -385,20 +365,29 @@ export function CybermonoHome() {
         </div>
       </section>
 
-      {/* ═══════════ ABOUT / WE BRING IDEAS TO LIFE ═══════════ */}
-      <section className="relative py-24 md:py-32" style={{ backgroundColor: "white" }}>
+      {/* ═══════════ ABOUT / WE BRING IDEAS TO LIFE — 20 variants ═══════════ */}
+      {[
+        "photo-1522071820081-009f0129c71c", // 1 — team collaboration
+        "photo-1553877522-43269d4ea984", // 4 — team meeting
+        "photo-1542744173-8e7e53415bb0", // 8 — business meeting
+        "photo-1551434678-e076c223a692", // 9 — dev working
+        "photo-1559136555-9303baea8ebd", // 16 — abstract tech
+      ].map((photoId, idx) => (
+      <section key={idx} className="relative py-24 md:py-32" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+          <div className="text-center mb-4">
+            <span className="text-2xl font-bold px-4 py-2 bg-black text-white inline-block" style={{ fontFamily: "monospace" }}>IMAGE {idx + 1}</span>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Visual block with image */}
             <ScrollReveal direction="left">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
                   <Image
-                    src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80"
-                    alt="Creative vision"
+                    src={`https://images.unsplash.com/${photoId}?w=800&q=80`}
+                    alt={`Option ${idx + 1}`}
                     fill
-                    className="object-cover "
+                    className="object-cover"
                   />
                   <div
                     className="absolute inset-0"
@@ -406,7 +395,6 @@ export function CybermonoHome() {
                   />
                   <div className="absolute inset-0" style={{ ...scanlineStyle, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)" }} />
                   <HudBrackets color="#FFFFFF" />
-                  {/* Large decorative text overlay */}
                   <div className="absolute inset-0 flex items-center justify-center select-none">
                     <span
                       className="text-[10rem] md:text-[14rem] leading-none font-bold text-white/10"
@@ -415,15 +403,13 @@ export function CybermonoHome() {
                       TRG
                     </span>
                   </div>
-                  {/* Data annotation */}
                   <div className="absolute bottom-4 left-4 z-10">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/60" style={{ fontFamily: "monospace" }}>IMG.REF_001 — RENDER</span>
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/60" style={{ fontFamily: "monospace" }}>IMG.REF_{String(idx + 1).padStart(3, "0")} — RENDER</span>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
 
-            {/* Text content */}
             <ScrollReveal direction="right">
               <div>
                 <div className="w-12 h-1 mb-6 bg-black" />
@@ -465,6 +451,7 @@ export function CybermonoHome() {
           </div>
         </div>
       </section>
+      ))}
 
       {/* ═══════════ STATS ═══════════ */}
       <section
@@ -671,77 +658,10 @@ export function CybermonoHome() {
       <TestimonialsSection />
 
       {/* ═══════════ TEAM ═══════════ */}
-      <section className="relative py-24 md:py-32" style={{ backgroundColor: "white" }}>
-        <div className="absolute inset-0" style={circuitGrid} />
-        <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-          <ScrollReveal direction="up">
-            <div className="text-center mb-16">
-              <h2
-                className="text-4xl md:text-6xl tracking-tight mb-3"
-                style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800, color: ACCENT }}
-              >
-                NOTRE EQUIPE
-              </h2>
-              <div className="w-12 h-1 mx-auto mb-4 bg-black" />
-              <p
-                className="text-xl"
-                style={{ fontFamily: poppins.style.fontFamily, color: GRAY, fontWeight: 800 }}
-              >
-                des talents passionnes
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { name: "ALEX MARTIN", role: "Directeur Technique", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" },
-              { name: "SARAH DUPONT", role: "Lead Designer", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" },
-              { name: "LUCAS MOREAU", role: "Developpeur Full-Stack", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" },
-            ].map((member, i) => (
-              <ScrollReveal key={member.name} direction="up" delay={i * 100}>
-                <div className="group relative overflow-hidden cursor-pointer" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      fill
-                      className="object-cover "
-                    />
-                    {/* Overlay sliding up from bottom */}
-                    <div
-                      className="absolute inset-x-0 bottom-0 h-full flex items-center justify-center [transform:translateY(100%)] group-hover:[transform:translateY(0)] [transition:transform_0.6s_cubic-bezier(0.16,1,0.3,1)]"
-                      style={{ backgroundColor: "rgba(0,0,0,0.70)" }}
-                    >
-                      <div className="absolute inset-0" style={scanlineStyleLight} />
-                      <div className="text-center relative z-10">
-                        <div className="w-8 h-px mx-auto mb-3 bg-white/50" />
-                        <h3
-                          className="text-lg md:text-xl tracking-wide text-white"
-                          style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
-                        >
-                          {member.name}
-                        </h3>
-                        <p
-                          className="text-xs uppercase tracking-[0.15em] mt-1 text-white/50"
-                          style={{ fontFamily: "monospace" }}
-                        >
-                          {member.role}
-                        </p>
-                      </div>
-                    </div>
-                    {/* Corner HUD */}
-                    <HudBrackets />
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamSection />
 
       {/* ═══════════ BLOG / ARTICLES ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className="relative py-14 md:py-18" style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
@@ -763,25 +683,41 @@ export function CybermonoHome() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.map((post, i) => (
+          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
+            {[
+              {
+                img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
+                cat: "DESIGN",
+                title: "Les tendances UI/UX qui domineront 2026",
+                excerpt: "Decouvrez les directions creatives qui redefinissent l'experience utilisateur cette annee.",
+              },
+              {
+                img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80",
+                cat: "MOBILE",
+                title: "Flutter vs React Native : le guide definitif",
+                excerpt: "Analyse comparative pour choisir le meilleur framework mobile pour votre projet.",
+              },
+              {
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+                cat: "STRATEGIE",
+                title: "Multiplier son ROI grace au design systeme",
+                excerpt: "Comment un design system bien structure peut reduire vos couts et accelerer vos livraisons.",
+              },
+            ].map((post, i) => (
               <ScrollReveal key={post.title} direction="up" delay={i * 150}>
-                <article className="group cursor-pointer">
+                <article className="group cursor-pointer min-w-[280px] snap-start md:min-w-0">
                   <div className="relative overflow-hidden mb-5 aspect-[4/3]" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                     <Image
                       src={post.img}
                       alt={post.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105 "
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0" style={scanlineStyle} />
                     <HudBrackets />
                     <span
                       className="absolute top-4 right-4 px-3 py-1 text-xs tracking-[0.2em] text-white bg-black"
-                      style={{
-                        fontFamily: "monospace",
-                        fontWeight: 600,
-                      }}
+                      style={{ fontFamily: "monospace", fontWeight: 600 }}
                     >
                       {post.cat}
                     </span>
@@ -798,9 +734,7 @@ export function CybermonoHome() {
                   >
                     {post.excerpt}
                   </p>
-                  <div
-                    className="inline-flex items-center justify-center w-10 h-10 transition-all duration-300 border border-black text-black hover:bg-black hover:text-white"
-                  >
+                  <div className="inline-flex items-center justify-center w-10 h-10 transition-all duration-300 border border-black text-black hover:bg-black hover:text-white">
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </article>
@@ -813,11 +747,10 @@ export function CybermonoHome() {
       {/* ═══════════ DUAL CTA ═══════════ */}
       <section className="relative" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-20 pt-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px]">
-          {/* Nos realisations */}
+        <div className="max-w-none md:max-w-[1800px] mx-auto px-0 md:px-12 pb-28 pt-14 md:pt-18 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-[2px]">
           <ScrollReveal direction="left">
-            <Link href="/portfolio" className="relative block overflow-hidden group" style={{ minHeight: "320px" }}>
+            <Link href="/portfolio" className="relative block overflow-hidden group" style={{ minHeight: "250px" }}>
               <Image
                 src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80"
                 alt="Nos realisations"
@@ -827,49 +760,43 @@ export function CybermonoHome() {
               <div className="absolute inset-0 transition-all duration-500 group-hover:bg-black/80" style={{ backgroundColor: "rgba(0,0,0,0.65)" }} />
               <div className="absolute inset-0" style={scanlineStyleLight} />
               <HudBrackets color="#FFFFFF" />
-              <div className="relative z-10 p-10 flex flex-col justify-start pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "320px" }}>
+              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "250px" }}>
                 <div className="w-10 h-1 mb-4 bg-white transition-all duration-500 group-hover:w-16" />
                 <h3
-                  className="text-4xl md:text-5xl text-white tracking-tight mb-2 transition-all duration-500 group-hover:tracking-wide"
+                  className="text-3xl md:text-5xl text-white tracking-tight mb-2 transition-all duration-500 group-hover:tracking-wide"
                   style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
                 >
                   NOS REALISATIONS
                 </h3>
-                <p className="text-lg text-white/40 mb-6 transition-colors duration-500 group-hover:text-white/70" style={{ fontFamily: poppins.style.fontFamily, fontWeight: 600 }}>
+                <p className="text-base md:text-lg text-white/40 mb-4 md:mb-6 transition-colors duration-500 group-hover:text-white/70" style={{ fontFamily: poppins.style.fontFamily, fontWeight: 600 }}>
                   design & qualite
                 </p>
-                <div className="inline-flex items-center justify-center w-12 h-12 text-white transition-all duration-300 border border-white/40 group-hover:bg-white group-hover:text-black group-hover:border-white">
+                <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 text-white transition-all duration-300 border border-white/40 group-hover:bg-white group-hover:text-black group-hover:border-white">
                   <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
             </Link>
           </ScrollReveal>
 
-          {/* Nous contacter */}
           <ScrollReveal direction="right">
-            <Link
-              href="/contact"
-              className="relative block overflow-hidden group"
-              style={{ minHeight: "320px" }}
-            >
-              <div className="absolute inset-0 transition-colors duration-500" style={{ backgroundColor: "#F7F7F7" }} />
-              <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="absolute inset-0" style={circuitGrid} />
-              <HudBrackets />
-              <div className="relative z-10 p-10 flex flex-col justify-start pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "320px" }}>
-                <div className="w-10 h-1 mb-4 bg-black transition-all duration-500 group-hover:w-16 group-hover:bg-white" />
+            <Link href="/contact" className="relative block overflow-hidden group" style={{ minHeight: "250px" }}>
+              <div className="absolute inset-0 transition-colors duration-500 bg-black md:bg-[#F7F7F7]" />
+              <div className="absolute inset-0 bg-black opacity-100 md:opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
+              <div className="absolute inset-0 hidden md:block" style={circuitGrid} />
+              <div className="absolute inset-0 md:hidden" style={circuitGridLight} />
+              <HudBrackets color="md:hidden ? #FFFFFF : undefined" />
+              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "250px" }}>
+                <div className="w-10 h-1 mb-4 bg-white md:bg-black transition-all duration-500 group-hover:w-16 md:group-hover:bg-white" />
                 <h3
-                  className="text-4xl md:text-5xl tracking-tight mb-2 transition-all duration-500 text-[#111111] group-hover:!text-white group-hover:tracking-wide"
+                  className="text-3xl md:text-5xl tracking-tight mb-2 transition-all duration-500 text-white md:text-[#111111] md:group-hover:!text-white group-hover:tracking-wide"
                   style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}
                 >
                   NOUS CONTACTER
                 </h3>
-                <p className="text-lg mb-6 transition-colors duration-500 text-[#888888] group-hover:!text-white/60" style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}>
+                <p className="text-base md:text-lg mb-4 md:mb-6 transition-colors duration-500 text-white/60 md:text-[#888888] md:group-hover:!text-white/60" style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800 }}>
                   travaillons ensemble
                 </p>
-                <div
-                  className="inline-flex items-center justify-center w-12 h-12 transition-all duration-300 border border-black text-black group-hover:border-white group-hover:text-white"
-                >
+                <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 transition-all duration-300 border border-white/40 text-white md:border-black md:text-black md:group-hover:border-white md:group-hover:text-white">
                   <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
