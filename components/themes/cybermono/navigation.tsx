@@ -16,7 +16,6 @@ const poppins = Poppins({
 const navLinks = [
   { href: "/creation-site-web", label: "Création site web", gap: false },
   { href: "/sur-mesure", label: "Sur-mesure", gap: false },
-  { href: "/application-mobile", label: "Application mobile", gap: false },
   { href: "/site-e-commerce", label: "E-commerce", gap: true },
   { href: "/portfolio", label: "Portfolio", gap: false },
   { href: "/a-propos", label: "L'agence", gap: false },
@@ -150,10 +149,10 @@ export function CybermonoNavigation() {
           <div className="space-y-0">
             {[...navLinks, { href: "/contact", label: "Contact", gap: false }].map((l, i) => {
               const isActive = pathname.startsWith(l.href);
-              const isServices = i < 4;
+              const isServices = i < 3;
               return (
                 <div key={l.href}>
-                  {i === 4 && <div className="h-px bg-white/10 my-4" />}
+                  {i === 3 && <div className="h-px bg-white/10 my-4" />}
                   <Link
                     href={l.href}
                     onClick={() => setMobileOpen(false)}

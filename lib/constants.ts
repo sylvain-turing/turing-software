@@ -28,7 +28,6 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { href: "/", label: "Accueil" },
   { href: "/creation-site-web", label: "Création de site web" },
-  { href: "/application-mobile", label: "Application mobile" },
   { href: "/site-e-commerce", label: "Site e-commerce" },
   { href: "/portfolio", label: "Réalisations" },
   { href: "/a-propos", label: "À propos" },

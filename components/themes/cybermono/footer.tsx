@@ -13,7 +13,6 @@ const poppins = Poppins({
 const footerLinks = [
   { href: "/creation-site-web", label: "Création site web" },
   { href: "/sur-mesure", label: "Sur-mesure" },
-  { href: "/application-mobile", label: "Application mobile" },
   { href: "/site-e-commerce", label: "E-commerce" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/a-propos", label: "L'agence" },

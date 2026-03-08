@@ -365,27 +365,17 @@ export function CybermonoHome() {
         </div>
       </section>
 
-      {/* ═══════════ ABOUT / WE BRING IDEAS TO LIFE — 20 variants ═══════════ */}
-      {[
-        "photo-1522071820081-009f0129c71c", // 1 — team collaboration
-        "photo-1553877522-43269d4ea984", // 4 — team meeting
-        "photo-1542744173-8e7e53415bb0", // 8 — business meeting
-        "photo-1551434678-e076c223a692", // 9 — dev working
-        "photo-1559136555-9303baea8ebd", // 16 — abstract tech
-      ].map((photoId, idx) => (
-      <section key={idx} className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
+      {/* ═══════════ ABOUT / WE BRING IDEAS TO LIFE ═══════════ */}
+      <section className={`relative ${layout.sectionPyLg}`} style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className={`${layout.container} relative z-10`}>
-          <div className="text-center mb-4">
-            <span className="text-2xl font-bold px-4 py-2 bg-black text-white inline-block" style={{ fontFamily: "monospace" }}>IMAGE {idx + 1}</span>
-          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
               <div className="relative">
                 <div className="relative aspect-[4/3] overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
                   <Image
-                    src={`https://images.unsplash.com/${photoId}?w=800&q=80`}
-                    alt={`Option ${idx + 1}`}
+                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80"
+                    alt="Notre vision"
                     fill
                     className="object-cover"
                   />
@@ -402,9 +392,6 @@ export function CybermonoHome() {
                     >
                       TRG
                     </span>
-                  </div>
-                  <div className="absolute bottom-4 left-4 z-10">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-white/60" style={{ fontFamily: "monospace" }}>IMG.REF_{String(idx + 1).padStart(3, "0")} — RENDER</span>
                   </div>
                 </div>
               </div>
@@ -451,7 +438,6 @@ export function CybermonoHome() {
           </div>
         </div>
       </section>
-      ))}
 
       {/* ═══════════ STATS ═══════════ */}
       <section
