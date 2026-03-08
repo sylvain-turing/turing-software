@@ -750,7 +750,7 @@ export function CybermonoHome() {
         <div className="max-w-none md:max-w-[1800px] mx-auto px-0 md:px-12 pb-28 pt-14 md:pt-18 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-[2px]">
           <ScrollReveal direction="left">
-            <Link href="/portfolio" className="relative block overflow-hidden group" style={{ minHeight: "250px" }}>
+            <Link href="/portfolio" className="relative block overflow-hidden group">
               <Image
                 src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800&q=80"
                 alt="Nos realisations"
@@ -760,7 +760,7 @@ export function CybermonoHome() {
               <div className="absolute inset-0 transition-all duration-500 group-hover:bg-black/80" style={{ backgroundColor: "rgba(0,0,0,0.65)" }} />
               <div className="absolute inset-0" style={scanlineStyleLight} />
               <HudBrackets color="#FFFFFF" />
-              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "250px" }}>
+              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-20 pb-10 md:pb-24 h-full transition-transform duration-500 group-hover:translate-x-3">
                 <div className="w-10 h-1 mb-4 bg-white transition-all duration-500 group-hover:w-16" />
                 <h3
                   className="text-3xl md:text-5xl text-white tracking-tight mb-2 transition-all duration-500 group-hover:tracking-wide"
@@ -779,13 +779,13 @@ export function CybermonoHome() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <Link href="/contact" className="relative block overflow-hidden group" style={{ minHeight: "250px" }}>
+            <Link href="/contact" className="relative block overflow-hidden group">
               <div className="absolute inset-0 transition-colors duration-500 bg-black md:bg-[#F7F7F7]" />
               <div className="absolute inset-0 bg-black opacity-100 md:opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
               <div className="absolute inset-0 hidden md:block" style={circuitGrid} />
               <div className="absolute inset-0 md:hidden" style={circuitGridLight} />
               <HudBrackets color="md:hidden ? #FFFFFF : undefined" />
-              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-16 h-full transition-transform duration-500 group-hover:translate-x-3" style={{ minHeight: "250px" }}>
+              <div className="relative z-10 p-8 md:p-10 flex flex-col justify-start pt-10 md:pt-20 pb-10 md:pb-24 h-full transition-transform duration-500 group-hover:translate-x-3">
                 <div className="w-10 h-1 mb-4 bg-white md:bg-black transition-all duration-500 group-hover:w-16 md:group-hover:bg-white" />
                 <h3
                   className="text-3xl md:text-5xl tracking-tight mb-2 transition-all duration-500 text-white md:text-[#111111] md:group-hover:!text-white group-hover:tracking-wide"

@@ -68,16 +68,16 @@ export function CybermonoNavigation() {
                 <li key={l.href} className={`flex items-center${l.gap ? " mr-4" : ""}`}>
                   <Link
                     href={l.href}
-                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/80 hover:text-black" : "text-white/80 hover:text-white")}`}
+                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/60 hover:text-black" : "text-white/60 hover:text-white")}`}
                     style={{ fontFamily: "system-ui, sans-serif", height: "16px", lineHeight: "16px", fontWeight: 700 }}
                   >
                     {/* Invisible bold text to reserve width */}
-                    <span className="invisible font-bold">{l.label}</span>
+                    <span className="invisible font-black">{l.label}</span>
                     <span className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 font-bold ${isActive ? "-translate-y-full" : "group-hover:-translate-y-full"}`}>
                       {l.label}
                     </span>
                     <span
-                      className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 font-bold ${isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"} ${scrolled ? "text-black" : "text-white"}`}
+                      className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 font-black ${isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"} ${scrolled ? "text-black" : "text-white"}`}
                       aria-hidden
                     >
                       {l.label}
@@ -128,7 +128,7 @@ export function CybermonoNavigation() {
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="text-white tracking-normal text-2xl"
+            className="text-white tracking-normal text-3xl"
             style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
           >
             TURING
@@ -156,16 +156,15 @@ export function CybermonoNavigation() {
                   <Link
                     href={l.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block py-2 uppercase transition-all duration-300 ${isActive ? "text-white" : "text-white/80"}`}
+                    className="block py-2 uppercase text-white"
                     style={{
                       fontFamily: poppins.style.fontFamily,
                       fontWeight: isActive ? 800 : 600,
                       fontSize: "1.3rem",
                       letterSpacing: isActive ? "0.15em" : "0.08em",
-                      transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms",
                       transform: mobileOpen ? "translateX(0)" : "translateX(-20px)",
                       opacity: mobileOpen ? 1 : 0,
-                      transition: "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+                      transition: `all 0.4s cubic-bezier(0.22,1,0.36,1) ${mobileOpen ? i * 40 : 0}ms`,
                     }}
                   >
                     {l.label}

@@ -80,10 +80,10 @@ export function TeamSection({ label, title = "NOTRE EQUIPE", subtitle = "des tal
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[250px] md:max-w-4xl mx-auto">
+        <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 md:max-w-4xl mx-auto overflow-x-auto scrollbar-hide snap-x snap-mandatory px-6 md:px-0">
           {members.map((member, i) => (
             <ScrollReveal key={member.name} direction="up" delay={i * 100}>
-              <div className="group relative overflow-hidden cursor-pointer" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
+              <div className="group relative overflow-hidden cursor-pointer min-w-[220px] snap-start md:min-w-0" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <Image src={member.img} alt={member.name} fill className="object-cover" />
                   <div
