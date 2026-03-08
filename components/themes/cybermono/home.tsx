@@ -683,7 +683,7 @@ export function CybermonoHome() {
             </div>
           </ScrollReveal>
 
-          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory md:overflow-visible">
+          <div className="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory flex-nowrap">
             {[
               {
                 img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&q=80",
@@ -704,8 +704,8 @@ export function CybermonoHome() {
                 excerpt: "Comment un design system bien structure peut reduire vos couts et accelerer vos livraisons.",
               },
             ].map((post, i) => (
-              <ScrollReveal key={post.title} direction="up" delay={i * 150}>
-                <article className="group cursor-pointer min-w-[280px] snap-start md:min-w-0">
+              <ScrollReveal key={post.title} direction="up" delay={i * 150} className="shrink-0 md:shrink snap-start">
+                <article className="group cursor-pointer w-[280px] md:w-auto">
                   <div className="relative overflow-hidden mb-5 aspect-[4/3]" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                     <Image
                       src={post.img}
@@ -747,7 +747,7 @@ export function CybermonoHome() {
       {/* ═══════════ DUAL CTA ═══════════ */}
       <section className="relative" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
-        <div className="max-w-none md:max-w-[1800px] mx-auto px-0 md:px-12 pb-28 pt-14 md:pt-18 relative z-10">
+        <div className="max-w-none md:max-w-[1800px] mx-auto px-0 md:px-12 pb-8 md:pb-28 pt-14 md:pt-18 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-[2px]">
           <ScrollReveal direction="left">
             <Link href="/portfolio" className="relative block overflow-hidden group">

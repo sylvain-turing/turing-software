@@ -172,6 +172,32 @@ export function CybermonoNavigation() {
                 </div>
               );
             })}
+
+            <div className="h-px bg-white/10 my-4" />
+            <a
+              href="tel:+33123456789"
+              className="block py-1.5 text-white"
+              style={{
+                fontFamily: poppins.style.fontFamily,
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                letterSpacing: "0.05em",
+              }}
+            >
+              +33 1 23 45 67 89
+            </a>
+            <a
+              href="mailto:contact@turing-software.com"
+              className="block py-1.5 text-white"
+              style={{
+                fontFamily: poppins.style.fontFamily,
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                letterSpacing: "0.05em",
+              }}
+            >
+              contact@turing-software.com
+            </a>
           </div>
         </nav>
 
