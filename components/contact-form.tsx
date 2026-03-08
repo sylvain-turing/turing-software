@@ -78,7 +78,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="name"
@@ -86,7 +86,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Nom *</FormLabel>
               <FormControl>
-                <Input placeholder="Votre nom" {...field} />
+                <Input placeholder="Votre nom" className="rounded-xl" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -103,6 +103,7 @@ export function ContactForm() {
                 <Input
                   type="email"
                   placeholder="votre.email@example.com"
+                  className="rounded-xl"
                   {...field}
                 />
               </FormControl>
@@ -121,6 +122,7 @@ export function ContactForm() {
                 <Input
                   type="tel"
                   placeholder="06 XX XX XX XX"
+                  className="rounded-xl"
                   {...field}
                 />
               </FormControl>
@@ -138,7 +140,7 @@ export function ContactForm() {
               <FormControl>
                 <Textarea
                   placeholder="Décrivez votre besoin..."
-                  className="min-h-[150px]"
+                  className="min-h-[150px] rounded-xl"
                   {...field}
                 />
               </FormControl>
@@ -150,7 +152,7 @@ export function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          className="w-full"
+          className="w-full rounded-full bg-brand-gradient hover:opacity-90 text-white"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

@@ -1,0 +1,174 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Poppins } from "next/font/google";
+import { Menu, X } from "lucide-react";
+
+const poppins = Poppins({
+  weight: ["400", "600", "800", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const navLinks = [
+  { href: "/creation-site-web", label: "Création site web" },
+  { href: "/sur-mesure", label: "Sur-mesure" },
+  { href: "/application-mobile", label: "Application mobile" },
+  { href: "/site-e-commerce", label: "E-commerce" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/a-propos", label: "L'agence" },
+];
+
+export function CybermonoNavigation() {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  return (
+    <>
+      {/* ── Desktop / tablet bar ── */}
+      <header
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        style={{
+          backgroundColor: scrolled ? "rgba(255,255,255,0.92)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "1px solid transparent",
+        }}
+      >
+        <nav className="max-w-[1400px] mx-auto flex items-center justify-between px-6 md:px-12 h-20">
+          {/* Logo */}
+          <Link
+            href="/"
+            className={`relative z-10 tracking-normal text-3xl select-none transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}
+            style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
+          >
+            AGENCE TURING
+          </Link>
+
+          {/* Desktop links */}
+          <ul className="hidden lg:flex items-center gap-4">
+            {navLinks.map((l) => {
+              const isActive = pathname.startsWith(l.href);
+              return (
+                <li key={l.href} className="flex items-center">
+                  <Link
+                    href={l.href}
+                    className={`relative text-[13px] uppercase tracking-[0.18em] transition-all duration-300 group overflow-hidden inline-flex items-center ${isActive ? (scrolled ? "text-black" : "text-white") : (scrolled ? "text-black/50 hover:text-black" : "text-white/50 hover:text-white")}`}
+                    style={{ fontFamily: "system-ui, sans-serif", height: "16px", lineHeight: "16px" }}
+                  >
+                    {/* Invisible bold text to reserve width */}
+                    <span className="invisible font-bold">{l.label}</span>
+                    <span className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 ${isActive ? "-translate-y-full" : "group-hover:-translate-y-full"}`} style={{ fontWeight: 500 }}>
+                      {l.label}
+                    </span>
+                    <span
+                      className={`absolute left-0 top-0 z-10 inline-block transition-transform duration-300 font-bold ${isActive ? "translate-y-0" : "translate-y-full group-hover:translate-y-0"} ${scrolled ? "text-black" : "text-white"}`}
+                      aria-hidden
+                    >
+                      {l.label}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+
+            {/* Contact CTA */}
+            <li>
+              <Link
+                href="/contact"
+                className={`ml-2 inline-flex items-center px-6 py-2.5 text-[13px] uppercase tracking-[0.2em] border-2 transition-all duration-300 ${pathname === "/contact" ? (scrolled ? "bg-black text-white border-black" : "bg-white text-black border-white") : (scrolled ? "text-black border-black/40 hover:bg-black hover:text-white hover:border-black" : "text-white border-white/40 hover:bg-white hover:text-black hover:border-white")}`}
+                style={{
+                  fontFamily: "system-ui, sans-serif",
+                  fontWeight: 600,
+                }}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+
+          {/* Mobile hamburger */}
+          <button
+            className={`lg:hidden relative z-10 p-2 transition-colors duration-300 ${scrolled ? "text-black" : "text-white"}`}
+            onClick={() => setMobileOpen(true)}
+            aria-label="Ouvrir le menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </nav>
+      </header>
+
+      {/* ── Mobile fullscreen overlay ── */}
+      <div
+        className="fixed inset-0 z-[100] flex flex-col transition-all duration-500 lg:pointer-events-none"
+        style={{
+          backgroundColor: "#0A0A0A",
+          opacity: mobileOpen ? 1 : 0,
+          pointerEvents: mobileOpen ? "auto" : "none",
+          visibility: mobileOpen ? "visible" : "hidden",
+        }}
+      >
+        {/* Top bar inside overlay */}
+        <div className="flex items-center justify-between px-6 h-20">
+          <Link
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="text-white tracking-normal text-3xl"
+            style={{ fontFamily: poppins.style.fontFamily, fontWeight: 900 }}
+          >
+            AGENCE TURING
+          </Link>
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="text-white p-2"
+            aria-label="Fermer le menu"
+          >
+            <X className="w-7 h-7" />
+          </button>
+        </div>
+
+        {/* Links */}
+        <div className="flex-1 flex flex-col items-center justify-center gap-6">
+          {[...navLinks, { href: "/contact", label: "Contact" }].map((l, i) => {
+            const isActive = pathname.startsWith(l.href);
+            return (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setMobileOpen(false)}
+              className={`${isActive ? "text-white tracking-[0.2em]" : "text-white/80 hover:text-white tracking-[0.1em] hover:tracking-[0.2em]"} text-4xl md:text-5xl uppercase transition-all duration-300`}
+              style={{
+                fontFamily: poppins.style.fontFamily,
+                transitionDelay: mobileOpen ? `${i * 50}ms` : "0ms",
+                transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+                opacity: mobileOpen ? 1 : 0,
+                transition: "all 0.4s cubic-bezier(0.22,1,0.36,1)",
+              }}
+            >
+              {l.label}
+            </Link>
+            );
+          })}
+        </div>
+
+        {/* Bottom accent line */}
+        <div className="h-1 w-full bg-white/20" />
+      </div>
+    </>
+  );
+}

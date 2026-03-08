@@ -38,7 +38,7 @@ export default function RootLayout({
         <GoogleAds />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <Navigation />
         <main className="min-h-screen pt-20">{children}</main>

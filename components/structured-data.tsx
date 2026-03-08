@@ -15,7 +15,8 @@ export function StructuredData() {
       "addressCountry": COMPANY_INFO.address.country
     },
     "priceRange": "€€",
-    "url": typeof window !== "undefined" ? window.location.origin : "",
+    "url": "https://www.turing-software.com",
+    "streetAddress": COMPANY_INFO.address.street,
     "areaServed": {
       "@type": "City",
       "name": COMPANY_INFO.address.city

@@ -1,5 +1,7 @@
 Tu vas modifier le site pour le faire correspondre à l'entreprise.
 
+---
+
 1: Modifie les couleurs dans global.css par les couleurs suivantes: 
 - brand-primary: #116cb1
 - brand-accent: #0f5f9e

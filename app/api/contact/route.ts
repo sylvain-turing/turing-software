@@ -3,7 +3,9 @@ import { Resend } from "resend";
 import ContactNotificationEmail from "@/emails/contact-notification";
 import { getPostHogClient } from "@/lib/posthog-server";
 
-const resend = new Resend('re_cMTsdk1c_7JmSreZQkrKGiDUqciGipUCg');
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -29,7 +31,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: "Contact Form <no-reply@turing-software.com>",
       to: [recipientEmail],
       subject: `Nouveau contact de ${name}`,
