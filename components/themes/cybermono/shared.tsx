@@ -63,7 +63,7 @@ export function TeamSection({ label, title = "NOTRE EQUIPE", subtitle = "des tal
   members?: { name: string; role: string; img: string }[];
 }) {
   return (
-    <section className="relative py-24 md:py-32" style={{ backgroundColor: "white" }}>
+    <section className="relative py-14 md:py-32" style={{ backgroundColor: "white" }}>
       <div className="absolute inset-0" style={circuitGrid} />
       <div className="absolute inset-0" style={scanlineStyle} />
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
@@ -119,7 +119,7 @@ export function TechStack({ technologies, label = "STACK.TECH — TOOLS", title 
   subtitle?: string;
 }) {
   return (
-    <section className="relative py-24 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
+    <section className="relative py-14 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
       <div className="absolute inset-0" style={circuitGrid} />
       <div className="absolute inset-0" style={scanlineStyle} />
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">

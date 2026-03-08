@@ -248,7 +248,7 @@ export function CybermonoHome() {
     <main className={poppins.className} style={{ fontFamily: `${poppins.style.fontFamily}, sans-serif` }}>
       {/* ═══════════ HERO ═══════════ */}
       <section
-        className="relative min-h-screen flex items-center overflow-hidden -mt-20 pt-20"
+        className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden -mt-20 pt-20"
         style={{
           background: `#000000`,
         }}
@@ -266,7 +266,7 @@ export function CybermonoHome() {
           priority
         />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-32 lg:py-0">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-16 md:py-32 lg:py-0">
           <ScrollReveal direction="up">
             {/* HUD data annotation */}
             <div className="flex items-center gap-3 mb-8">
@@ -314,7 +314,7 @@ export function CybermonoHome() {
 
       {/* ═══════════ SERVICES ═══════════ */}
       <section
-        className="relative py-28 md:py-36"
+        className="relative py-14 md:py-36"
         style={{ backgroundColor: "#F7F7F7" }}
       >
         <div className="absolute inset-0" style={circuitGrid} />
@@ -373,7 +373,7 @@ export function CybermonoHome() {
         "photo-1551434678-e076c223a692", // 9 — dev working
         "photo-1559136555-9303baea8ebd", // 16 — abstract tech
       ].map((photoId, idx) => (
-      <section key={idx} className="relative py-24 md:py-32" style={{ backgroundColor: "white" }}>
+      <section key={idx} className="relative py-14 md:py-32" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center mb-4">
@@ -455,7 +455,7 @@ export function CybermonoHome() {
 
       {/* ═══════════ STATS ═══════════ */}
       <section
-        className="relative py-24 md:py-32"
+        className="relative py-14 md:py-32"
         style={{ backgroundColor: "#F7F7F7" }}
       >
         <div className="absolute inset-0" style={circuitGrid} />
@@ -518,11 +518,11 @@ export function CybermonoHome() {
       </section>
 
       {/* ═══════════ WHY US ═══════════ */}
-      <section className="relative py-28 md:py-36" style={{ backgroundColor: "white" }}>
+      <section className="relative py-14 md:py-36" style={{ backgroundColor: "white" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <ScrollReveal direction="up">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 md:mb-20">
               <h2
                 className="text-4xl md:text-6xl tracking-tight mb-3"
                 style={{ fontFamily: poppins.style.fontFamily, color: ACCENT, fontWeight: 800 }}
@@ -585,7 +585,7 @@ export function CybermonoHome() {
 
       {/* ═══════════ CLIENTS LOGOS ═══════════ */}
       <section
-        className="relative py-16 overflow-hidden"
+        className="relative py-10 md:py-16 overflow-hidden"
         style={{ backgroundColor: "#F7F7F7", borderTop: "1px solid rgba(0,0,0,0.06)", borderBottom: "1px solid rgba(0,0,0,0.06)" }}
       >
         <div className="flex animate-marquee whitespace-nowrap">
@@ -614,7 +614,7 @@ export function CybermonoHome() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,0,0,0.94) 0%, rgba(20,20,20,0.88) 50%, rgba(0,0,0,0.94) 100%)" }} />
           <div className="absolute inset-0" style={circuitGridLight} />
           <div className="absolute inset-0" style={scanlineStyleLight} />
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-center h-full py-20" style={{ minHeight: "600px" }}>
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col justify-center h-full py-14 md:py-20" style={{ minHeight: "600px" }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <div className="flex items-center gap-4 mb-8">
@@ -661,12 +661,12 @@ export function CybermonoHome() {
       <TeamSection />
 
       {/* ═══════════ BLOG / ARTICLES ═══════════ */}
-      <section className="relative py-14 md:py-18" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className="relative py-10 md:py-18" style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
           <ScrollReveal direction="up">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-16">
               <h2
                 className="text-4xl md:text-5xl tracking-tight mb-3"
                 style={{ fontFamily: poppins.style.fontFamily, fontWeight: 800, color: ACCENT }}
