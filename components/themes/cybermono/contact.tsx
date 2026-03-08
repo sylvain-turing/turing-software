@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, MapPin, Phone, Mail, Clock } from "lucide-react";
-import { ScrollReveal } from "@/components/scroll-reveal";
 import { COMPANY_INFO } from "@/lib/constants";
 import { poppins, ACCENT, GRAY, scanlineStyle, circuitGrid, circuitGridLight, scanlineStyleLight, HudBrackets } from "./shared";
 
@@ -53,14 +52,14 @@ export function CybermonoContact() {
     <main className={poppins.className} style={{ fontFamily: `${poppins.style.fontFamily}, sans-serif` }}>
       {/* ═══════════ HERO ═══════════ */}
       <section
-        className="relative min-h-[50vh] flex items-center overflow-hidden -mt-20 pt-20"
+        className="relative min-h-[40vh] md:min-h-[50vh] flex items-start md:items-center overflow-hidden -mt-20 pt-20"
         style={{ background: "#000000" }}
       >
         <div className="absolute inset-0" style={circuitGridLight} />
         <div className="absolute inset-0" style={scanlineStyleLight} />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-24 lg:py-0">
-          <ScrollReveal direction="up">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] pt-4 md:py-24 lg:py-0">
+          <div>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 bg-white" />
               <span className="text-[10px] uppercase tracking-[0.4em] text-white/60" style={{ fontFamily: "monospace" }}>COMM.SYS — CONTACT</span>
@@ -76,22 +75,22 @@ export function CybermonoContact() {
             <p className="text-white/60 max-w-lg text-lg leading-relaxed" style={{ fontFamily: "system-ui, sans-serif" }}>
               Une idee, un projet, une question ? Contactez-nous et recevez une reponse sous 24 heures.
             </p>
-          </ScrollReveal>
+          </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)" }} />
       </section>
 
       {/* ═══════════ FORM + INFO ═══════════ */}
-      <section className="relative py-24 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className="relative py-10 md:py-32" style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-0 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
-              <ScrollReveal direction="left">
-                <div className="relative p-8 md:p-12 bg-white" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
+              <div>
+                <div className="relative p-4 md:p-12 bg-white" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <HudBrackets />
                   <div className="mb-8">
                     <span className="text-[10px] uppercase tracking-[0.4em] block mb-3" style={{ fontFamily: "monospace", color: GRAY, opacity: 0.7 }}>FORM.INPUT — MESSAGE</span>
@@ -178,12 +177,12 @@ export function CybermonoContact() {
                     </button>
                   </form>
                 </div>
-              </ScrollReveal>
+              </div>
             </div>
 
             {/* Info */}
             <div className="lg:col-span-2">
-              <ScrollReveal direction="right">
+              <div>
                 <div className="space-y-6">
                   {contactInfo.map((info) => {
                     const Wrapper = info.href ? "a" : "div";
@@ -213,7 +212,7 @@ export function CybermonoContact() {
                   })}
 
                 </div>
-              </ScrollReveal>
+              </div>
             </div>
           </div>
         </div>

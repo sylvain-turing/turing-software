@@ -70,7 +70,7 @@ export function CybermonoPortfolio() {
           priority
         />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-24 lg:py-0">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-14 md:py-24 lg:py-0">
           <ScrollReveal direction="up">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 bg-white" />
@@ -94,7 +94,7 @@ export function CybermonoPortfolio() {
       </section>
 
       {/* ═══════════ STATS ═══════════ */}
-      <section className="relative py-16" style={{ backgroundColor: "#F7F7F7" }}>
+      <section className="relative py-14 md:py-16" style={{ backgroundColor: "#F7F7F7" }}>
         <div className="absolute inset-0" style={circuitGrid} />
         <div className="absolute inset-0" style={scanlineStyle} />
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">

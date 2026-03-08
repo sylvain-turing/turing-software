@@ -40,7 +40,7 @@ export function CybermonoAPropos() {
           priority
         />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-24 lg:py-0">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:pl-[10%] py-14 md:py-24 lg:py-0">
           <ScrollReveal direction="up">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 bg-white" />
